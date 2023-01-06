@@ -1,25 +1,46 @@
-import * as React from 'react';
+import * as React from "react";
 
 
-const Switch : React.FC<{
-    label?:string
-}>  = (prop) => {
-    return  <div className="flex justify-center">
-    <div className="form-check form-switch">
-      <input
-        className="form-check-input appearance-none w-9 -ml-10 rounded-full float-left h-5 align-top bg-white bg-no-repeat bg-contain dark:bg-gray-300 focus:outline-none cursor-pointer shadow-sm"
-        type="checkbox"
-        role="switch"
-        id="flexSwitchCheckDefault"
-      />
-      <label
-        className="form-check-label inline-block text-gray-800"
-        htmlFor="flexSwitchCheckDefault"
-      >
-        {prop.label}
-      </label>
+
+
+const Switch: React.FC<{
+  onToggle?: (value:boolean) => void;
+}> = (prop) => {
+
+  const [value, setValue] = React.useState(false)
+
+  React.useEffect(() => {
+    if(prop.onToggle) prop.onToggle(value)
+  }, [value])
+
+  return (<div
+      className={`w-14 h-8 flex items-center  rounded-full p-1 duration-300 cursor-pointer ${
+        value ? "bg-green-500 " : "bg-gray-200 dark:bg-gray-700"
+      }`}
+      onClick={() => { setValue(!value)}}
+    >
+      <div
+        className={`bg-white  dark:bg-gray-200 w-6 h-6 rounded-full shadow-md transform duration-300 ${
+          value ? "translate-x-6" : ""
+        }`}
+      ></div>
     </div>
-  </div>
+  );
+};
+
+export const Switch2 : React.FC<React.DetailedHTMLProps<
+React.InputHTMLAttributes<HTMLInputElement>,
+HTMLInputElement
+> & {
+  className ?: string
+}> = (prop) => {
+
+   return <label htmlFor={prop.id} className={`bg-gray-200 dark:bg-gray-700  relative w-14 h-8 rounded-full`}>
+    <input {...prop} type="checkbox" className="sr-only peer"/>
+    <span className="w-6 h-6 bg-white  dark:bg-gray-200 absolute shadow-md rounded-full left-1 top-1 peer-checked:bg-green-600
+     peer-checked:left-7 transition-all duration-300"/>
+   </label>
 }
- 
+
+
 export default Switch;

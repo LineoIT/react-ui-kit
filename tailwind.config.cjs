@@ -23,6 +23,7 @@ module.exports = {
           base: withOpacity('--color-text-base'),
           muted: withOpacity('--color-text-muted'),
           inverted: withOpacity('--color-text-inverted'),
+          primary: withOpacity('--color-primary'),
         },
       },
       backgroundColor: {
@@ -31,6 +32,7 @@ module.exports = {
           'button-accent': withOpacity('--color-button-accent'),
           'button-accent-hover': withOpacity('--color-button-accent-hover'),
           'button-muted': withOpacity('--color-button-muted'),
+          primary: withOpacity('--color-primary'),
         },
       },
       gradientColorStops: {
@@ -40,5 +42,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    
+  ],
 }

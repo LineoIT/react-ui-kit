@@ -11,6 +11,7 @@
       --color-button-accent: 255, 255, 255;
       --color-button-accent-hover: 238, 242, 255;
       --color-button-muted: 99, 102, 241;
+      --color-primary: 27, 94, 32;
     }
     .theme-swiss {
       --color-text-base: 255, 255, 255;
