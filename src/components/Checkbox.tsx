@@ -12,7 +12,7 @@ const CheckBox: React.FC<
     <label className="cursor-pointer ">
       <input {...prop} type="checkbox" className="peer sr-only" />
       <div
-        className="rounded-md border bg-white dark:bg-transparent
+        className="rounded border bg-white dark:bg-transparent
          text-white dark:text-transparent ring-2 ring-transparent transition-all hover:shadow 
       peer-checked:text-green-600 peer-checked:ring-green-400 peer-checked:ring-offset-2
        dark:peer-checked:text-white"

@@ -2,12 +2,15 @@ import React from "react";
 import CheckBox from "./components/Checkbox";
 import Dialog from "./components/Dialog";
 import Radio from "./components/Radio";
+import SearchField from "./components/SearchField";
+import SelectField from "./components/SelectField";
 import Switch, { Switch2 } from "./components/Switch";
+import TextField from "./components/TextField";
 import CustomTheme from "./examples/CustomTheme";
 
 function LightComponents() {
   return (
-    <div className="flex flex-col  flex-1  p-10 bg-white bg-opacity-10 mr-10">
+    <div className="flex flex-col  flex-1  p-10 bg-white  mr-10">
       {/* light switch */}
       <div className="flex  flex-wrap gap-8">
         <div className="flex items-center">
@@ -19,36 +22,33 @@ function LightComponents() {
           <span className="ml-1">Switch2</span>
         </div>
       </div>
-      
+
       <div className="h-5" />
-      
+
       <div className="flex items-center flex-wrap gap-8 py-2">
         <div className="flex items-center">
-          <Radio name="radio"/>
+          <Radio name="radio" />
           <span className="ml-1">Radio</span>
         </div>
         <div className="flex items-center">
-          <Radio checked name="radio"/>
+          <Radio checked name="radio" />
           <span className="ml-1">Radio checked</span>
         </div>
 
-
-        <div className="h-3 w-[1px] bg-white"/>
+        <div className="h-3 w-[1px] bg-white" />
         <div className="flex items-center">
-          <Radio checked checkable name="checkable"/>
+          <Radio checked checkable name="checkable" />
           <span className="ml-1">Radio </span>
         </div>
-       
 
         <div className="flex items-center">
-          <Radio checked checkable name="checkable"/>
-          <span className="ml-1">Radio  checked</span>
+          <Radio checked checkable name="checkable" />
+          <span className="ml-1">Radio checked</span>
         </div>
-       
       </div>
 
       <div className="h-5" />
-      
+
       <div className="flex items-center flex-wrap gap-8 py-2">
         <div className="flex items-center">
           <CheckBox />
@@ -58,6 +58,14 @@ function LightComponents() {
           <CheckBox checked />
           <span className="ml-1">Checkbox checked</span>
         </div>
+      </div>
+
+      <div className="h-5" />
+
+      <div className="flex items-center flex-wrap gap-8 py-2">
+        <SearchField placeholder="search" />
+        <TextField placeholder="normal" />
+        <TextField error placeholder="error" />
       </div>
 
       <div className="h-5" />
@@ -75,7 +83,7 @@ function LightComponents() {
 
 function DarkComponents() {
   return (
-    <div className="dark  flex flex-col flex-1 p-10 bg-black bg-opacity-10">
+    <div className="dark  flex flex-col flex-1 p-10 bg-gray-600 bg-opacity-1">
       {/* dark switch */}
       <div className="flex flex-wrap gap-8 ">
         <div className="flex items-center">
@@ -88,34 +96,31 @@ function DarkComponents() {
         </div>
       </div>
       <div className="h-5" />
-      
+
       <div className="flex items-center flex-wrap gap-8 p-2 ">
         <div className="flex items-center">
-          <Radio name="radio2"/>
+          <Radio name="radio2" />
           <span className="ml-1">Radio</span>
         </div>
         <div className="flex items-center">
-          <Radio checked name="radio2"/>
+          <Radio checked name="radio2" />
           <span className="ml-1">Radio checked</span>
         </div>
 
-
-        <div className="h-3 w-[1px] bg-white"/>
+        <div className="h-3 w-[1px] bg-white" />
         <div className="flex items-center">
-          <Radio checked checkable name="checkable2"/>
+          <Radio checked checkable name="checkable2" />
           <span className="ml-1">Radio</span>
         </div>
-       
 
         <div className="flex items-center">
-          <Radio checked checkable name="checkable2"/>
-          <span className="ml-1">Radio  checked</span>
+          <Radio checked checkable name="checkable2" />
+          <span className="ml-1">Radio checked</span>
         </div>
-       
       </div>
 
       <div className="h-5" />
-      
+
       <div className="flex items-center flex-wrap gap-8 py-2">
         <div className="flex items-center">
           <CheckBox />
@@ -127,9 +132,30 @@ function DarkComponents() {
         </div>
       </div>
 
+      <div className="h-5" />
+
+      <div className="flex items-center flex-wrap gap-8 py-2">
+        <SearchField placeholder="search" />
+        <TextField placeholder="normal" />
+        <TextField error placeholder="error" />
+
+        <SelectField>
+          <option value="US">United States</option>
+          <option value="CA">Canada</option>
+          <option value="FR">France</option>
+          <option value="DE">Germany</option>
+        </SelectField>
+         <SelectField error>
+          <option value="US">United States</option>
+          <option value="CA">Canada</option>
+          <option value="FR">France</option>
+          <option value="DE">Germany</option>
+        </SelectField>
+        
+      </div>
 
       <div className="h-5" />
-      
+
       {/* dark switch */}
       <div className="flex flex-wrap gap-8">
         <Dialog title="Dark mode" className="dark">
