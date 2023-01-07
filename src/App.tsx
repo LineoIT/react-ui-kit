@@ -1,4 +1,5 @@
 import React from "react";
+import { Alert, AlertDialog } from "./components/Alert";
 import { LinkButton } from "./components/Button";
 import { Button } from "./components/Button/Button";
 import CheckBox from "./components/Checkbox";
@@ -89,9 +90,41 @@ function LightComponents() {
           <Button>default</Button>
           <Button disabled>disabled</Button>
           <Button variant="outlined">outlined</Button>
-          <Button variant="outlined" disabled>outlined disabled</Button>
+          <Button variant="outlined" disabled>
+            outlined disabled
+          </Button>
         </div>
+
         <div className="h-5" />
+
+        <div className="flex flex-col gap-5 my-3">
+          <Alert
+            variant="success"
+            header="Success Title goes Here"
+            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et pharetra dui, sed varius tellus."
+          />
+
+          <Alert
+            variant="info"
+            header="Info Title goes Here"
+            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et pharetra dui, sed varius tellus."
+          />
+
+          <Alert
+            variant="error"
+            header="Error Title goes Here"
+            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et pharetra dui, sed varius tellus."
+          />
+
+          <Alert
+            variant="warning"
+            header="Warning Title goes Here"
+            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et pharetra dui, sed varius tellus."
+          />
+        </div>
+
+        <div className="h-5" />
+
         {/* light dialog  */}
         <div className="flex flex-wrap gap-8">
           <Dialog title="Light mode" textOk="Try now" textCancel="No thanks">
@@ -182,8 +215,39 @@ function DarkComponents() {
           <Button>default</Button>
           <Button disabled>disabled</Button>
           <Button variant="outlined">outlined</Button>
-          <Button variant="outlined" disabled>outlined disabled</Button>
+          <Button variant="outlined" disabled>
+            outlined disabled
+          </Button>
         </div>
+
+        <div className="h-5" />
+
+        <div className="flex flex-col gap-5 my-3">
+          <Alert
+            variant="success"
+            header="Success Title goes Here"
+            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et pharetra dui, sed varius tellus."
+          />
+
+          <Alert
+            variant="info"
+            header="Info Title goes Here"
+            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et pharetra dui, sed varius tellus."
+          />
+
+          <Alert
+            variant="error"
+            header="Error Title goes Here"
+            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et pharetra dui, sed varius tellus."
+          />
+
+          <Alert
+            variant="warning"
+            header="Warning Title goes Here"
+            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et pharetra dui, sed varius tellus."
+          />
+        </div>
+
         <div className="h-5" />
 
         {/* dark switch */}
@@ -216,8 +280,42 @@ function App() {
         {/* dark components */}
         <DarkComponents />
 
-        <div className="w-full flex p-10 bg-white">
-          <Button onClick={() => setOpenModal(true)}>Open modal</Button>
+        <div className="w-full  p-10 bg-white relative">
+          <Button onClick={() => setOpenModal(!openModal)}>Open modal</Button>
+
+          <span className="absolute flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+          </span>
+
+          {openModal && (
+            <div
+              className={` absolute m-auto mt-0 h-20 w-20 animate-slide-up
+                bg-green-700  right-5`}
+            >
+              Bounce
+            </div>
+          )}
+        </div>
+
+        <div className="flex flex-col gap-5">
+          <AlertDialog variant="error">
+            <AlertDialog.Header>Warning Title goes Here</AlertDialog.Header>
+            <AlertDialog.Body>
+              <p className="text-sm">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent et pharetra dui, sed varius tellus.
+              </p>
+              <div>
+                <a className="text-sm tracking-wide hover:underline" href="">
+                  See Detail
+                </a>
+              </div>
+            </AlertDialog.Body>
+          </AlertDialog>
+          <AlertDialog variant="success" />
+          <AlertDialog variant="info" />
+          <AlertDialog variant="warning" />
         </div>
       </div>
 

@@ -72,6 +72,16 @@ module.exports = {
         'white-70': 'rgba(255,255,255,0.7)',
         'white-80': 'rgba(255,255,255,0.8)',
         'white-90': 'rgba(255,255,255,0.9)',
+      },
+      keyframes: {
+        'slide-up': {
+          'from': { top: '-100px' },
+          'to': { top: '0px' },
+        }
+      },
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
+        'slide-up': 'slide-up .2s ease-in-out',
       }
     },
   },
