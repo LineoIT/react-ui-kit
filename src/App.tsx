@@ -1,5 +1,5 @@
 import React from "react";
-import { Alert, AlertDialog } from "./components/Alert";
+import { Alert } from "./components/Alert";
 import { LinkButton } from "./components/Button";
 import { Button } from "./components/Button/Button";
 import CheckBox from "./components/Checkbox";
@@ -97,31 +97,58 @@ function LightComponents() {
 
         <div className="h-5" />
 
-        <div className="flex flex-col gap-5 my-3">
-          <Alert
-            variant="success"
-            header="Success Title goes Here"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et pharetra dui, sed varius tellus."
-          />
 
-          <Alert
-            variant="info"
-            header="Info Title goes Here"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et pharetra dui, sed varius tellus."
-          />
-
-          <Alert
-            variant="error"
-            header="Error Title goes Here"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et pharetra dui, sed varius tellus."
-          />
-
-          <Alert
-            variant="warning"
-            header="Warning Title goes Here"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et pharetra dui, sed varius tellus."
-          />
+        <div className="flex flex-col gap-5">
+          <Alert variant="error">
+            <Alert.Header>Warning Title goes Here</Alert.Header>
+            <Alert.Content>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent et pharetra dui, sed varius tellus.
+              <div>
+                <a className="text-sm tracking-wide hover:underline" href="">
+                  See Detail
+                </a>
+              </div>
+            </Alert.Content>
+          </Alert>
+          <Alert variant="success">
+            <Alert.Header>Warning Title goes Here</Alert.Header>
+            <Alert.Content>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent et pharetra dui, sed varius tellus.
+              <div>
+                <a className="text-sm tracking-wide hover:underline" href="">
+                  See Detail
+                </a>
+              </div>
+            </Alert.Content>
+          </Alert>
+          <Alert variant="info"  closable icon>
+            <Alert.Header>Warning Title goes Here</Alert.Header>
+            <Alert.Content>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent et pharetra dui, sed varius tellus.
+              <div>
+                <a className="text-sm tracking-wide hover:underline" href="">
+                  See Detail
+                </a>
+              </div>
+            </Alert.Content>
+          </Alert>
+          <Alert variant="warning">
+            <Alert.Header>Warning Title goes Here</Alert.Header>
+            <Alert.Content>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent et pharetra dui, sed varius tellus.
+              <div>
+                <a className="text-sm tracking-wide hover:underline" href="">
+                  See Detail
+                </a>
+              </div>
+            </Alert.Content>
+          </Alert>
         </div>
+
 
         <div className="h-5" />
 
@@ -222,31 +249,58 @@ function DarkComponents() {
 
         <div className="h-5" />
 
-        <div className="flex flex-col gap-5 my-3">
-          <Alert
-            variant="success"
-            header="Success Title goes Here"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et pharetra dui, sed varius tellus."
-          />
-
-          <Alert
-            variant="info"
-            header="Info Title goes Here"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et pharetra dui, sed varius tellus."
-          />
-
-          <Alert
-            variant="error"
-            header="Error Title goes Here"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et pharetra dui, sed varius tellus."
-          />
-
-          <Alert
-            variant="warning"
-            header="Warning Title goes Here"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et pharetra dui, sed varius tellus."
-          />
+      
+        <div className="flex flex-col gap-5">
+          <Alert variant="error">
+            <Alert.Header>Warning Title goes Here</Alert.Header>
+            <Alert.Content>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent et pharetra dui, sed varius tellus.
+              <div>
+                <a className="text-sm tracking-wide hover:underline" href="">
+                  See Detail
+                </a>
+              </div>
+            </Alert.Content>
+          </Alert>
+          <Alert variant="success" closable icon>
+            <Alert.Header>Warning Title goes Here</Alert.Header>
+            <Alert.Content>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent et pharetra dui, sed varius tellus.
+              <div>
+                <a className="text-sm tracking-wide hover:underline" href="">
+                  See Detail
+                </a>
+              </div>
+            </Alert.Content>
+          </Alert>
+          <Alert variant="info">
+            <Alert.Header>Warning Title goes Here</Alert.Header>
+            <Alert.Content>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent et pharetra dui, sed varius tellus.
+              <div>
+                <a className="text-sm tracking-wide hover:underline" href="">
+                  See Detail
+                </a>
+              </div>
+            </Alert.Content>
+          </Alert>
+          <Alert variant="warning">
+            <Alert.Header>Warning Title goes Here</Alert.Header>
+            <Alert.Content>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent et pharetra dui, sed varius tellus.
+              <div>
+                <a className="text-sm tracking-wide hover:underline" href="">
+                  See Detail
+                </a>
+              </div>
+            </Alert.Content>
+          </Alert>
         </div>
+
 
         <div className="h-5" />
 
@@ -298,25 +352,6 @@ function App() {
           )}
         </div>
 
-        <div className="flex flex-col gap-5">
-          <AlertDialog variant="error">
-            <AlertDialog.Header>Warning Title goes Here</AlertDialog.Header>
-            <AlertDialog.Body>
-              <p className="text-sm">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Praesent et pharetra dui, sed varius tellus.
-              </p>
-              <div>
-                <a className="text-sm tracking-wide hover:underline" href="">
-                  See Detail
-                </a>
-              </div>
-            </AlertDialog.Body>
-          </AlertDialog>
-          <AlertDialog variant="success" />
-          <AlertDialog variant="info" />
-          <AlertDialog variant="warning" />
-        </div>
       </div>
 
       <Modal
