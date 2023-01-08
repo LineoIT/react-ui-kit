@@ -1,13 +1,11 @@
 import { FC, useRef, useState } from "react";
 import { Button } from "../components/Button";
-import { Toast, useToast } from "../components/Toast";
-import { Toasty } from "../components/Toast/Toasty";
-import { Toastable } from "../components/Toast/types";
+import { Toast, Toastable, ToastProvider, useToast } from "../components/Toast/Toast";
+
 
 const ToastUI: FC<{ className?: string }> = (prop) => {
-  const toast= useRef<Toastable>()
-  const toast2= useRef<Toastable>()
-  const {ToastProvider, toast : toaster} =  useToast()
+  const toastRef= useRef<Toastable>()
+  const toaster =  useToast()
 
   return (
     
@@ -16,39 +14,28 @@ const ToastUI: FC<{ className?: string }> = (prop) => {
         <fieldset className="border p-2">
           <legend className="p-2  dark:text-gray-400">Toasts</legend>
 
-          <div className="w-full text-center dark:text-gray-200 mt-5">Singleton</div>
+          <div className="w-full text-center dark:text-gray-200 mt-5">With Ref</div>
           <div className="flex items-center flex-wrap gap-2 py-2">
-            <Button variant="outlined" onClick={() => toast.current?.show("Tailwind Toast To Notify Users.")}>default</Button>
-            <Button variant="outlined" onClick={() => toast.current?.show("Your Uploads Are Waiting For Your Action.", "info")}>info</Button>
-            <Button variant="outlined" onClick={() => toast.current?.show("Data Updated Successfully.", "success")}>success</Button>
-            <Button variant="outlined" onClick={() => toast.current?.show("Your are Disconnected, Please Check.", "warning")}>warning</Button>
-            <Button variant="outlined" onClick={() => toast.current?.show("Your are Disconnected, Please Check.", "error")}>error</Button>
+            <Button variant="outlined" onClick={() => toastRef.current?.notify("Tailwind Toast To Notify Users.")}>default</Button>
+            <Button variant="outlined" onClick={() => toastRef.current?.notify("Your Uploads Are Waiting For Your Action.", "info")}>info</Button>
+            <Button variant="outlined" onClick={() => toastRef.current?.notify("Data Updated Successfully.", "success")}>success</Button>
+            <Button variant="outlined" onClick={() => toastRef.current?.notify("Your are Disconnected, Please Check.", "warning")}>warning</Button>
+            <Button variant="outlined" onClick={() => toastRef.current?.notify("Your are Disconnected, Please Check.", "error")}>error</Button>
           </div>
 
-          <div className="w-full text-center dark:text-gray-200 mt-5">Push notifications </div>
+          <div className="w-full text-center dark:text-gray-200 mt-5">With provider</div>
           <div className="flex items-center flex-wrap gap-2 py-2">
-            <Button onClick={() => toaster.show("Tailwind Toast To Notify Users.")}>default</Button>
-            <Button onClick={() => toaster.show("Your Uploads Are Waiting For Your Action.", "info")}>info</Button>
-            <Button onClick={() => toaster.show("Data Updated Successfully.", "success")}>success</Button>
-            <Button onClick={() => toaster.show("Your are Disconnected, Please Check.", "warning")}>warning</Button>
-            <Button onClick={() => toaster.show("Your are Disconnected, Please Check.", "error")}>error</Button>
-          </div>
-
-          <div className="w-full text-center dark:text-gray-200 mt-5">kkjk</div>
-          <div className="flex items-center flex-wrap gap-2 py-2">
-            <Button variant="outlined" onClick={() => toast2.current?.notify("Tailwind Toast To Notify Users.") }>default</Button>
-            <Button onClick={() => toast2.current?.notify("Your Uploads Are Waiting For Your Action.", "info")}>info</Button>
-            <Button onClick={() => toast2.current?.notify("Data Updated Successfully.", "success")}>success</Button>
-            <Button onClick={() => toast2.current?.notify("Your are Disconnected, Please Check.", "warning")}>warning</Button>
-            <Button onClick={() => toast2.current?.notify("Your are Disconnected, Please Check.", "error")}>error</Button>
+            <Button onClick={() => toaster.notify("Tailwind Toast To Notify Users.")}>default</Button>
+            <Button onClick={() => toaster.notify("Your Uploads Are Waiting For Your Action.", "info")}>info</Button>
+            <Button onClick={() => toaster.notify("Data Updated Successfully.", "success")}>success</Button>
+            <Button onClick={() => toaster.notify("Your are Disconnected, Please Check.", "warning")}>warning</Button>
+            <Button onClick={() => toaster.notify("Your are Disconnected, Please Check.", "error")}>error</Button>
           </div>
 
         </fieldset>
       </div>
-      <Toast refer={toast}/>
-      <Toasty refer={toast2}/>
-
-    <ToastProvider/>
+      <Toast refer={toastRef}/>
+      <ToastProvider/>
     </>
   );
 };
