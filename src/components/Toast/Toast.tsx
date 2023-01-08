@@ -1,5 +1,4 @@
 import * as React from "react";
-import { BaseToast } from "./Base";
 import { Toastable, Variant } from "./types";
 
 
@@ -67,10 +66,7 @@ export const Toast: React.FC<React.PropsWithChildren<{
         },
       }));
 
-  return (
-    <>
-     <BaseToast/>
-      <div ref={modal} className={`fixed z-40 top-8 right-8 max-w-lg rounded-lg  px-4 py-3 border  shadow-lg animate-toast ${theming} ${visible ? "visible": "hidden"}`}>
+  return (<div ref={modal} className={`fixed z-40 top-8 right-8 max-w-lg rounded-lg  px-4 py-3 border  shadow-lg animate-toast ${theming} ${visible ? "visible": "hidden"}`}>
         <div className="flex items-center gap-2">
 
         {variant === "default" && <svg className="shrink-0 w-6 h-6" viewBox="0 0 16 16">
@@ -111,6 +107,5 @@ export const Toast: React.FC<React.PropsWithChildren<{
           </div>}
         </div>
       </div>
-    </>
   );
 };
