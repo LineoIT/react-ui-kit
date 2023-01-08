@@ -1,6 +1,6 @@
 import React from "react";
 
-const Radio: React.FC<
+export const Radio: React.FC<
   React.DetailedHTMLProps<
     React.InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
@@ -39,5 +39,3 @@ const Radio: React.FC<
     </label>
   );
 };
-
-export default Radio;

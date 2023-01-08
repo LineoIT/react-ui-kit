@@ -1,7 +1,7 @@
 import { FC } from "react";
-import SearchField from "../components/SearchField";
-import SelectField from "../components/SelectField";
-import TextField from "../components/TextField";
+import {SearchField} from "../components/SearchField/";
+import {SelectField} from "../components/SelectField/";
+import {TextField} from "../components/TextField/";
 
 const InputUI : FC<{className?:string}> = (prop) => {
     return <div className={prop.className}> <fieldset className="border p-2">

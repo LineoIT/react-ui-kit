@@ -3,7 +3,7 @@ import * as React from "react";
 
 
 
-const Switch: React.FC<{
+export const Switch: React.FC<{
   onToggle?: (value:boolean) => void;
 }> = (prop) => {
 
@@ -43,4 +43,3 @@ HTMLInputElement
 }
 
 
-export default Switch;

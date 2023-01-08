@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const TextField: React.FC<
+export const TextField: React.FC<
   React.DetailedHTMLProps<
     React.InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
@@ -30,4 +30,3 @@ const TextField: React.FC<
   );
 };
 
-export default TextField;

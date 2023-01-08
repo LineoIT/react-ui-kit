@@ -1,6 +1,6 @@
 import React from "react";
 
-const CheckBox: React.FC<
+export const CheckBox: React.FC<
   React.DetailedHTMLProps<
     React.InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
@@ -34,4 +34,3 @@ const CheckBox: React.FC<
   );
 };
 
-export default CheckBox;

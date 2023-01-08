@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const Dialog: React.FC<React.PropsWithChildren<{
+export const Dialog: React.FC<React.PropsWithChildren<{
     className?: string,
     title?:string
     textOk?: string

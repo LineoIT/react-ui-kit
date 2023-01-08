@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Switch, { Switch2 } from "../components/Switch";
+import  { Switch, Switch2 } from "../components/Switch";
 
 const SwitchUI: FC<{ className?: string }> = (prop) => {
   return (

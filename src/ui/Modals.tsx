@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import Dialog from "../components/Dialog";
+import Dialog from "../components/Dialog/Dialog";
 import { Modal } from "../components/Modal";
 
 const ModalUI : FC<{className?:string}> = (prop) => {

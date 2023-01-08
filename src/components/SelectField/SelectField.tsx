@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const SelectField: React.FC<
+export const SelectField: React.FC<
   React.DetailedHTMLProps<
     React.SelectHTMLAttributes<HTMLSelectElement>,
     HTMLSelectElement
@@ -35,4 +35,3 @@ const SelectField: React.FC<
   );
 };
 
-export default SelectField;

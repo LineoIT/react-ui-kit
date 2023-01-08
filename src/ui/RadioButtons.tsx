@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Radio from "../components/Radio";
+import {Radio} from "../components/Radio";
 
 const RadioButtonUI: FC<{ className?: string }> = (prop) => {
   return (

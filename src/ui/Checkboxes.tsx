@@ -1,5 +1,5 @@
 import { FC } from "react";
-import CheckBox from "../components/Checkbox";
+import {CheckBox} from "../components/CheckBox/";
 
 const CheckBoxUI: FC<{className?:string}> = (prop) => {
     return <div className={prop.className}>
