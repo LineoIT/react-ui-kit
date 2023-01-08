@@ -42,6 +42,7 @@ module.exports = {
       },
       transitionProperty: {
         'opacity-visibility': 'opacity, visibility',
+        'opacity-transform': 'visibility, transform',
         'opacity-visibility-transform': 'opacity, visibility, transform',
       },
       colors: {
@@ -74,14 +75,23 @@ module.exports = {
         'white-90': 'rgba(255,255,255,0.9)',
       },
       keyframes: {
+        'slide-left': {
+          'from': { opacity: '0', transform: 'translateX(100px)' },
+          'to': { opacity: '1', transform: 'translateX(0)' },
+        },
         'slide-up': {
-          'from': { top: '-100px' },
-          'to': { top: '0px' },
-        }
+          'from': { opacity: '0', transform: 'translateY(100px)' },
+          'to': { opacity: '1', transform: 'translateY(0)' },
+        },
+        'slide-down': {
+          'from': { opacity: '0', transform: 'translateY(-100px)' },
+          'to': { opacity: '1', transform: 'translateY(0)' },
+        },
       },
       animation: {
         'spin-slow': 'spin 3s linear infinite',
         'slide-up': 'slide-up .2s ease-in-out',
+        toast: 'slide-left .3s forwards'
       }
     },
   },
