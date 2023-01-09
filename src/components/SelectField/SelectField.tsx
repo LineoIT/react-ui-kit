@@ -19,7 +19,7 @@ export const SelectField: React.FC<
 
   return (
     <div
-      className={`rounded px-2 border focus-within:ring-1 dark:bg-black dark:text-gray-300 dark:bg-opacity-30 dark:focus-within:bg-opacity-10 dark:focus-within:text-gray-200   ${color}`}
+      className={`rounded px-2 border focus-within:ring-1 bg-white dark:bg-black dark:text-gray-300 dark:bg-opacity-30 dark:focus-within:bg-opacity-10 dark:focus-within:text-gray-200   ${color}`}
     >
       <select
         {...rest}
@@ -28,7 +28,7 @@ export const SelectField: React.FC<
           inputClass
         }
       >
-        <option defaultValue="">Choose a country</option>
+        <option defaultValue="">{rest.placeholder}</option>
         {children}
       </select>
     </div>

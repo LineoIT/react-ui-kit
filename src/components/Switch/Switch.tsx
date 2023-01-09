@@ -4,13 +4,40 @@ import * as React from "react";
 
 
 export const Switch: React.FC<{
-  onChange?: (value?:boolean) => void;
+  onChange?: (value:boolean) => void;
   value?: boolean
+  size?: "small" | "medium" | "large"
 }> = (prop) => {
+
+  // const skin = React.useMemo(() => {
+  //   return prop.size === "small" ? "w-11 h-4 py-1 pr-1" : "w-12 h-6 p-1"
+  // }, [prop.size])
+
+  // const indicator = React.useMemo(() => {
+  //   return prop.size === "small" ? "w-5 h-5" : "w-4 h-4"
+  // }, [prop.size])
+
+  // const activeIndicator = React.useMemo(() => {
+  //   return prop.size === "small" ? "translate-x-6" : "translate-x-6"
+  // }, [prop.size])
+
+  const skin = React.useMemo(() => {
+    return prop.size === "small" ?  "w-11 h-4 py-1 pr-1"  : prop.size === "medium" ?  "w-12 h-6 p-1":  "w-14 h-8 p-1"
+  }, [prop.size])
+
+  const indicator = React.useMemo(() => {
+    return prop.size === "small" ?  "w-5 h-5"  : prop.size === "medium" ?  "w-4 h-4": "w-6 h-6"
+  }, [prop.size])
+
+  const activeIndicator = React.useMemo(() => {
+    return prop.size === "small" ?  "translate-x-6"  : prop.size === "medium" ?  "translate-x-6": "translate-x-6"
+  }, [prop.size])
+
+
 
 
   return (<div
-      className={`w-14 h-8 flex items-center  rounded-full p-1 duration-300 cursor-pointer ${
+      className={`flex items-center  rounded-full ${skin} duration-300 cursor-pointer ${
         prop.value ? "bg-primary " : "bg-gray-200 dark:bg-gray-700"
       }`}
       onClick={() => { 
@@ -18,8 +45,8 @@ export const Switch: React.FC<{
       }}
     >
       <div
-        className={`bg-white  dark:bg-gray-200 w-6 h-6 rounded-full shadow-md transform duration-300 ${
-          prop.value ? "translate-x-6" : ""
+        className={`bg-white  dark:bg-gray-200 ${indicator} rounded-full shadow-md transform duration-300 ${
+          prop.value ? activeIndicator : ""
         }`}
       ></div>
     </div>

@@ -18,7 +18,7 @@ export const TextField: React.FC<
   );
 
   return (
-    <div className={`rounded px-2 border focus-within:ring-1 dark:bg-black dark:text-gray-300 dark:bg-opacity-30 dark:focus-within:bg-opacity-10 dark:focus-within:text-gray-200 dark:placeholder-gray-400  ${color}`}>
+    <div className={`rounded px-2 border focus-within:ring-1 bg-white dark:bg-black dark:text-gray-300 dark:bg-opacity-30 dark:focus-within:bg-opacity-10 dark:focus-within:text-gray-200 dark:placeholder-gray-400  ${color}`}>
       <input
       {...rest}
         className={

@@ -1,5 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { Switch } from "../components/Switch";
+import { useTheme } from "../hooks/useTheme";
+
 
 function MenuItem() {
   return (
@@ -216,24 +218,14 @@ export const  Breadcrumb : FC<{className?:string}> = ({className}) => {
 
 const Sidebar : FC<{
   className?:string}> = (prop) => {
-  const [isDark, setIsDark] = useState<boolean>()
+  const {theme, toggleTheme} = useTheme()
+  const [isDark, setIsDark] = useState<boolean>(theme === "dark")
 
-  useEffect(() => {
-    window.addEventListener('storage', storageListener, false);
-    return () => {
-      window.removeEventListener("storage", storageListener)
-    }
-}, []);
+useEffect(() => {
+  if(isDark) toggleTheme("dark")
+  else toggleTheme("light")
+}, [isDark])
 
-const storageListener = () => {
-  const theme = localStorage.getItem("theme")
-  console.log("theme: "+ theme)
-  // if(theme === "dark") {
-  //   document.body.classList.add('dark')
-  //  }else{
-  //   document.body.classList.remove('dark')
-  //  }
-}
 
   return (
       <aside className=" ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-primary-dark dark:bg-gray-800 transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
@@ -266,8 +258,8 @@ const storageListener = () => {
 
           <div className="border border-white-10 my-5" />
 
-          <div className="flex gap-3 items-center">
-             <Switch value={isDark} onChange={setIsDark}/>
+          <div className="flex gap-3 items-center mb-3">
+             <Switch size="small" value={isDark} onChange={setIsDark}/>
              <div className="text-white-60">{isDark ? "dark": "light"}</div>
           </div>
 
