@@ -14,7 +14,7 @@ export const CheckBox: React.FC<
       <div
         className="rounded border bg-white dark:bg-transparent
          text-white dark:text-transparent ring-2 ring-transparent transition-all hover:shadow 
-      peer-checked:text-green-600 peer-checked:ring-green-400 peer-checked:ring-offset-2
+      peer-checked:text-primary peer-checked:ring-primary-dark peer-checked:ring-offset-2
        dark:peer-checked:text-white"
       >
         <div className="flex items-center justify-between ">

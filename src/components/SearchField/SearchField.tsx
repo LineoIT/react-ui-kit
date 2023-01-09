@@ -11,7 +11,7 @@ type Prop = React.DetailedHTMLProps<
 export const SearchField: React.FC<Prop> = (prop) => {
   return (
     <label className="flex items-center rounded px-2 
-    text-gray-400 dark:text-gray-200 border border-gray-400  focus-within:text-gray-700 focus-within:ring-green-500 focus-within:ring-1 focus-within:border-green-500 dark:bg-black dark:bg-opacity-30 dark:focus-within:bg-opacity-10 dark:focus-within:text-gray-200 dark:placeholder-gray-500  dark:placeholder-opacity-100">
+    text-gray-400 dark:text-gray-200 border border-gray-400  focus-within:text-gray-700 focus-within:ring-primary focus-within:ring-1 focus-within:border-primary dark:bg-black dark:bg-opacity-30 dark:focus-within:bg-opacity-10 dark:focus-within:text-gray-200 dark:placeholder-gray-500  dark:placeholder-opacity-100">
       <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
         <path
           fill-rule="evenodd"

@@ -20,16 +20,14 @@ export const Dialog: React.FC<React.PropsWithChildren<{
         <div className="px-6 py-3 bg-gray-200 dark:bg-gray-700 flex items-center justify-end divide-x-2 divide-gray-400 dark:divide-gray-500 divide-dashed">
             <div className="pr-4">
                 <button onClick={prop.onCancel}
-                 className="text-sm font-medium text-green-700 dark:text-green-400 hover:text-green-800 dark:hover:text-green-500 focus:outline-none focus:shadow-sm">{prop.textCancel}</button>
+                 className="text-sm font-medium text-primary dark:text-accent hover:text-primary-dark dark:hover:text-primary/90 focus:outline-none focus:shadow-sm">{prop.textCancel}</button>
             </div>
             <div className="pl-4">
                 <button onClick={prop.onOk}
-                  className="px-4 py-1 rounded-full text-sm font-medium text-green-100 dark:text-green-700 bg-green-500 dark:bg-green-200 hover:bg-green-400 dark:hover:bg-green-100">{prop.textOk}</button>
+                  className="px-4 py-1 rounded-full text-sm font-medium text-gray-200 dark:text-primary bg-primary/90 dark:bg-accent hover:bg-primary-dark/80 dark:hover:bg-primary/50 dark:hover:text-gray-200">{prop.textOk}</button>
             </div>
         </div>
       </div>
     </div>
   );
 };
-
-export default Dialog;

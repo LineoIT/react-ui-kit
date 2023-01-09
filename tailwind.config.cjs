@@ -18,41 +18,19 @@ module.exports = {
   darkMode: "class", // false, media or class
   theme: {
     extend: {
-      textColor: {
-        skin: {
-          base: withOpacity('--color-text-base'),
-          muted: withOpacity('--color-text-muted'),
-          inverted: withOpacity('--color-text-inverted'),
-          primary: withOpacity('--color-primary'),
-        },
-      },
-      backgroundColor: {
-        skin: {
-          fill: withOpacity('--color-fill'),
-          'button-accent': withOpacity('--color-button-accent'),
-          'button-accent-hover': withOpacity('--color-button-accent-hover'),
-          'button-muted': withOpacity('--color-button-muted'),
-          primary: withOpacity('--color-primary-base'),
-        },
-      },
-      gradientColorStops: {
-        skin: {
-          hue: withOpacity('--color-fill'),
-        },
-      },
       transitionProperty: {
         'opacity-visibility': 'opacity, visibility',
         'opacity-transform': 'visibility, transform',
         'opacity-visibility-transform': 'opacity, visibility, transform',
       },
       colors: {
-        'primary': 'var(--color-primary)',
-        'primary-dark': 'var(--color-primary-dark)',
-        'accent': 'var(--color-accent)',
-        'skin': 'var(--color-skin)',
-        'skin-dark': 'var(--color-skin-dark)',
-        'word': 'var(--color-text)',
-        'word-dark': 'var(--color-text-dark)',
+        'primary': withOpacity('--x-primary'),
+        'primary-dark': withOpacity('--x-primary-dark'),
+        'accent': withOpacity('--x-accent'),
+        'skin': withOpacity('--x-skin'),
+        'skin-dark': withOpacity('--x-skin-dark'),
+        'word': withOpacity('--x-text'),
+        'word-dark': withOpacity('--x-text-dark'),
 
         'black-10': 'rgba(0,0,0,0.1)',
         'black-20': 'rgba(0,0,0,0.2)',
@@ -87,11 +65,17 @@ module.exports = {
           'from': { opacity: '0', transform: 'translateY(-100px)' },
           'to': { opacity: '1', transform: 'translateY(0)' },
         },
+        'fade': {
+          'from': { opacity: '0' },
+          'to': { opacity: '1' },
+        }
       },
       animation: {
         'spin-slow': 'spin 3s linear infinite',
         'slide-up': 'slide-up .2s ease-in-out',
-        toast: 'slide-left .3s forwards'
+        toast: 'slide-left .3s forwards',
+        fade: 'fade .3s forwards',
+        loader: 'fade .3s infinite'
       }
     },
   },

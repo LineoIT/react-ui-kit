@@ -14,8 +14,8 @@ export const Radio: React.FC<
       <div
         className="rounded-full border bg-white dark:bg-transparent
          text-white dark:text-transparent ring-2 ring-transparent transition-all hover:shadow 
-      peer-checked:text-green-600 peer-checked:ring-green-400 peer-checked:ring-offset-0
-      dark:peer-checked:text-green-600 
+      peer-checked:text-primary-dark peer-checked:ring-primary peer-checked:ring-offset-0
+      dark:peer-checked:text-primary-dark
      "
       >
         <div className="flex items-center justify-between">

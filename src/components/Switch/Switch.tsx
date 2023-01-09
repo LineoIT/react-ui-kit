@@ -15,7 +15,7 @@ export const Switch: React.FC<{
 
   return (<div
       className={`w-14 h-8 flex items-center  rounded-full p-1 duration-300 cursor-pointer ${
-        value ? "bg-green-500 " : "bg-gray-200 dark:bg-gray-700"
+        value ? "bg-primary " : "bg-gray-200 dark:bg-gray-700"
       }`}
       onClick={() => { setValue(!value)}}
     >
@@ -37,7 +37,7 @@ HTMLInputElement
 
    return <label htmlFor={prop.id} className={`bg-gray-200 dark:bg-gray-700  relative w-14 h-8 rounded-full`}>
     <input {...prop} type="checkbox" className="sr-only peer"/>
-    <span className="w-6 h-6 bg-white  dark:bg-gray-200 absolute shadow-md rounded-full left-1 top-1 peer-checked:bg-green-600
+    <span className="w-6 h-6 bg-white  dark:bg-gray-200 absolute shadow-md rounded-full left-1 top-1 peer-checked:bg-primary-dark
      peer-checked:left-7 transition-all duration-300"/>
    </label>
 }

@@ -4,6 +4,10 @@ import {SelectField} from "../components/SelectField/";
 import {TextField} from "../components/TextField/";
 
 const InputUI : FC<{className?:string}> = (prop) => {
+
+  function handleSelect(t: string) {
+    console.log(t);
+  }
     return <div className={prop.className}> <fieldset className="border p-2">
         <legend className="p-2  dark:text-gray-400">Input fields</legend>
         <div className="flex items-center flex-wrap gap-8 py-2">

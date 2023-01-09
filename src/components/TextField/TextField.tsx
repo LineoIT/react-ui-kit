@@ -13,7 +13,7 @@ export const TextField: React.FC<
     () =>
       prop.error
         ? "text-red-500 border-red-400 focus-within:text-red-700 focus-within:ring-red-500  focus-within:border-red-500"
-        : "text-gray-500 border-gray-400 focus-within:text-gray-700 focus-within:ring-green-500  focus-within:border-green-500 ",
+        : "text-gray-500 border-gray-400 focus-within:text-gray-700 focus-within:ring-primary  focus-within:border-primary ",
     [prop.color]
   );
 
@@ -29,4 +29,6 @@ export const TextField: React.FC<
     </div>
   );
 };
+
+
 
