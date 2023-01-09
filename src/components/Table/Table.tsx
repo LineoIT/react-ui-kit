@@ -37,11 +37,11 @@ export const TableBody: FC<React.DetailedHTMLProps<React.HTMLAttributes<HTMLTabl
 
 export const TableRow: FC<React.DetailedHTMLProps<React.HTMLAttributes<HTMLTableRowElement>, HTMLTableRowElement> & {
  hover?:boolean
-}> = (prop) => {
+}> = ({hover=false, ...prop}) => {
   return (
     <tr {...prop} className={`table-row text-gray-600 dark:text-gray-200  border-gray-200 dark:border-gray-500  font-[400]  border-collapse border-spacing-0 border-b 
       leading-[24px] indent-0 align-middle
-      ${prop.hover ? 'hover:bg-primary/10': ''}
+      ${hover ? 'hover:bg-primary/10': ''}
     ${prop.className}`}>
       {prop.children}
     </tr>
