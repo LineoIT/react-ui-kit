@@ -13,7 +13,8 @@ import ToastUI from "./Toasts";
 
 const UIComponents = () => {
     return   <div
-      className={`p-10 text-center overflow-y-auto bg-white`}
+      className={`p-10 text-center overflow-y-auto 
+      `}
     >
 
 

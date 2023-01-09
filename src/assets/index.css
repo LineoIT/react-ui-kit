@@ -6,6 +6,7 @@
     :root {
       --color-primary: rgb(34, 98, 198); 
       --color-primary-dark: rgb(13, 74, 172);
+      --color-primary-darkness: rgb(6, 36, 86);
       --color-accent: rgb(83, 128, 199);
       --color-skin: rgb(245, 245, 245);
       --color-skin-dark: ​rgb(75, 85, 99);
@@ -17,6 +18,7 @@
 
       --x-primary: 34, 98, 198;
       --x-primary-dark: 13, 74, 172;
+      --x-primary-darkness: 6, 36, 86;
       --x-accent: 83, 128, 199;
       --x-skin: 245, 245, 245;
       --x-skin-dark: 75, 85, 99;

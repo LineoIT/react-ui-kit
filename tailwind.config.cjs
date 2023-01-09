@@ -26,6 +26,7 @@ module.exports = {
       colors: {
         'primary': withOpacity('--x-primary'),
         'primary-dark': withOpacity('--x-primary-dark'),
+        'primary-darkness': withOpacity('--x-primary-darkness'),
         'accent': withOpacity('--x-accent'),
         'skin': withOpacity('--x-skin'),
         'skin-dark': withOpacity('--x-skin-dark'),

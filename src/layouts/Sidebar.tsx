@@ -228,7 +228,7 @@ useEffect(() => {
 
 
   return (
-      <aside className=" ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-primary-dark dark:bg-gray-800 transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
+      <aside className=" ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-primary-dark  dark:bg-primary-darkness transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
         <div className="flex items-center p-2 my-5 font-semibold text-white dark:text-gray-300">
           <svg
             enableBackground="new 0 0 503.589 503.589"
