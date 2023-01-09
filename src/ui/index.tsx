@@ -1,3 +1,4 @@
+import { Box } from "../components/Box/Box";
 import AlertUI from "./Alerts";
 import ButtonUI from "./Buttons";
 import CheckBoxUI from "./Checkboxes";
@@ -12,10 +13,11 @@ import ToastUI from "./Toasts";
 
 const UIComponents = () => {
     return   <div
-      className={`p-10 text-center overflow-y-auto`}
+      className={`p-10 text-center overflow-y-auto bg-white`}
     >
 
 
+<Box className="h-[300px]"/>
 
 <TableUI className="my-2  p-3"/>
 
