@@ -13,9 +13,9 @@ export const Dialog: React.FC<React.PropsWithChildren<{
       <div className="bg-white dark:bg-gray-900 rounded-lg shadow-2xl overflow-hidden">
         <div className="p-6 space-y-2">
           <h2 className="text-lg font-bold text-gray-800 dark:text-gray-200">{prop.title}</h2>
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <div className="text-sm text-gray-500 dark:text-gray-400">
             {prop.children}
-          </p>
+          </div>
         </div>
         <div className="px-6 py-3 bg-gray-200 dark:bg-gray-700 flex items-center justify-end divide-x-2 divide-gray-400 dark:divide-gray-500 divide-dashed">
             <div className="pr-4">

@@ -11,7 +11,7 @@ const CheckBoxUI: FC<{className?:string}> = (prop) => {
             <span className="ml-1">Checkbox</span>
           </div>
           <div className="flex items-center">
-            <CheckBox checked />
+            <CheckBox   defaultChecked/>
             <span className="ml-1">Checkbox checked</span>
           </div>
         </div>

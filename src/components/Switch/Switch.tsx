@@ -4,24 +4,22 @@ import * as React from "react";
 
 
 export const Switch: React.FC<{
-  onToggle?: (value:boolean) => void;
+  onChange?: (value?:boolean) => void;
+  value?: boolean
 }> = (prop) => {
 
-  const [value, setValue] = React.useState(false)
-
-  React.useEffect(() => {
-    if(prop.onToggle) prop.onToggle(value)
-  }, [value])
 
   return (<div
       className={`w-14 h-8 flex items-center  rounded-full p-1 duration-300 cursor-pointer ${
-        value ? "bg-primary " : "bg-gray-200 dark:bg-gray-700"
+        prop.value ? "bg-primary " : "bg-gray-200 dark:bg-gray-700"
       }`}
-      onClick={() => { setValue(!value)}}
+      onClick={() => { 
+        if(prop.onChange) prop.onChange(!prop.value)
+      }}
     >
       <div
         className={`bg-white  dark:bg-gray-200 w-6 h-6 rounded-full shadow-md transform duration-300 ${
-          value ? "translate-x-6" : ""
+          prop.value ? "translate-x-6" : ""
         }`}
       ></div>
     </div>

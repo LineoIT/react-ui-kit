@@ -35,7 +35,7 @@ export const Modal : React.FC<ModalProps> = ({ children, visible, setVisible, wi
           {children}
         </div>
       </div>,
-    document.body
+     document.body
   )
 };
 

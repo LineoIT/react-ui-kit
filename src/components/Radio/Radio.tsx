@@ -7,10 +7,10 @@ export const Radio: React.FC<
   > & {
     checkable?: boolean;
   }
-> = (prop) => {
+> = ({checkable=false, ...rest}) => {
   return (
     <label className="cursor-pointer ">
-      <input {...prop} type="radio" className="peer sr-only" />
+      <input {...rest} type="radio" className="peer sr-only" />
       <div
         className="rounded-full border bg-white dark:bg-transparent
          text-white dark:text-transparent ring-2 ring-transparent transition-all hover:shadow 
@@ -19,7 +19,7 @@ export const Radio: React.FC<
      "
       >
         <div className="flex items-center justify-between">
-          {prop.checkable ? (
+          {checkable ? (
             <svg width="16" height="16" viewBox="0 0 24 24">
               <path
                 fill="currentColor"

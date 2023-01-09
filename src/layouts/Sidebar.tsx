@@ -193,7 +193,7 @@ export const  Breadcrumb : FC<{className?:string}> = ({className}) => {
       <li>
         <div className="flex items-center ">
           <svg className="h-6 w-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+            <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path>
           </svg>
           <a href="#" className="ml-1 font-medium text-primary  hover:text-primary-dark md:ml-2">
             Projects
@@ -203,7 +203,7 @@ export const  Breadcrumb : FC<{className?:string}> = ({className}) => {
       <li aria-current="page">
         <div className="flex items-center">
           <svg className="h-6 w-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+            <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path>
           </svg>
           <span className="ml-1 font-medium text-gray-500 md:ml-2">
             Beyond Builder
@@ -214,12 +214,26 @@ export const  Breadcrumb : FC<{className?:string}> = ({className}) => {
   </nav>
 }
 
-const theme =  localStorage.getItem('theme')
-
 const Sidebar : FC<{
-  onToggleTheme?: (t: boolean)=>void
   className?:string}> = (prop) => {
-  const [isDark, setIsDark] = useState<boolean>( theme !== undefined && theme == "dark")
+  const [isDark, setIsDark] = useState<boolean>()
+
+  useEffect(() => {
+    window.addEventListener('storage', storageListener, false);
+    return () => {
+      window.removeEventListener("storage", storageListener)
+    }
+}, []);
+
+const storageListener = () => {
+  const theme = localStorage.getItem("theme")
+  console.log("theme: "+ theme)
+  // if(theme === "dark") {
+  //   document.body.classList.add('dark')
+  //  }else{
+  //   document.body.classList.remove('dark')
+  //  }
+}
 
   return (
       <aside className=" ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-primary-dark dark:bg-gray-800 transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
@@ -241,9 +255,9 @@ const Sidebar : FC<{
           <div className="flex items-center rounded px-4 py-3 cursor-text text-gray-200 dark:text-gray-500 bg-white-10 dark:bg-white-10">
             <svg viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               />
             </svg>
           </div>
@@ -253,10 +267,7 @@ const Sidebar : FC<{
           <div className="border border-white-10 my-5" />
 
           <div className="flex gap-3 items-center">
-             <Switch onToggle={() => {
-               if(prop.onToggleTheme) prop.onToggleTheme(!isDark)
-               setIsDark(!isDark)
-             }}/>
+             <Switch value={isDark} onChange={setIsDark}/>
              <div className="text-white-60">{isDark ? "dark": "light"}</div>
           </div>
 

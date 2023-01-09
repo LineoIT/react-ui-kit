@@ -12,18 +12,18 @@ const RadioButtonUI: FC<{ className?: string }> = (prop) => {
             <span className="ml-1">Radio</span>
           </div>
           <div className="flex items-center">
-            <Radio checked name="radio2" />
+            <Radio defaultChecked name="radio2" />
             <span className="ml-1">Radio checked</span>
           </div>
 
           <div className="h-3 w-[1px] bg-white" />
           <div className="flex items-center">
-            <Radio checked checkable name="checkable2" />
+            <Radio defaultChecked checkable name="checkable2" />
             <span className="ml-1">Radio</span>
           </div>
 
           <div className="flex items-center">
-            <Radio checked checkable name="checkable2" />
+            <Radio defaultChecked checkable name="checkable2" />
             <span className="ml-1">Radio checked</span>
           </div>
         </div>

@@ -3,15 +3,15 @@ import * as React from "react";
 type Variant = "info" | "error" | "warning" | "success";
 
 const Header : React.FC<React.PropsWithChildren> = (prop) => {
-     return <p className="font-bold capitalize">
+     return <div className="font-bold capitalize">
         {prop.children}
-     </p>
+     </div>
 }
 
 const Content : React.FC<React.PropsWithChildren> = (prop) => {
-    return   <p className="text-sm">
+    return   <div className="text-sm">
        {prop.children}
-    </p>
+    </div>
 }
 
 const AlertDialog: React.FC<React.PropsWithChildren<{
@@ -23,10 +23,10 @@ const AlertDialog: React.FC<React.PropsWithChildren<{
 }>>  & {
     Header: typeof Header,
     Content: typeof Content,
-}  = (prop) => {
+}  = ({variant="info", header, content ,children, closable=false, icon=false}) => {
 
   const theming = React.useMemo(() => {
-    switch (prop.variant) {
+    switch (variant) {
       case "error":
         return "bg-rose-100 text-rose-700  shadow-rose-500/20";
       case "success":
@@ -36,10 +36,10 @@ const AlertDialog: React.FC<React.PropsWithChildren<{
       default:
         return "bg-sky-100 text-sky-700  shadow-sky-500/20";
     }
-  }, [prop.variant]);
+  }, [variant]);
 
   const accentTheming = React.useMemo(() => {
-    switch (prop.variant) {
+    switch (variant) {
       case "error":
         return "border-rose-200 hover:bg-rose-200";
       case "success":
@@ -49,14 +49,14 @@ const AlertDialog: React.FC<React.PropsWithChildren<{
       default:
         return "border-info-200 hover:bg-info-200";
     }
-  }, [prop.variant]);
+  }, [variant]);
 
   return (
     <div className={`max-w-lg overflow-hidden rounded-lg shadow-md ${theming}`}>
       <div className="flex">
         <div className="flex items-center gap-4 px-4 py-4">
-          {prop.icon && <div className="shrink-0">
-            {prop.variant === "success" && (
+          {icon && <div className="shrink-0">
+            {variant === "success" && (
               <svg width="32" height="32" viewBox="0 0 24 24">
                 <path
                   fill="currentColor"
@@ -64,7 +64,7 @@ const AlertDialog: React.FC<React.PropsWithChildren<{
                 ></path>
               </svg>
             )}
-            {prop.variant === "info" && (
+            {variant === "info" && (
               <svg width="32" height="32" viewBox="0 0 24 24">
                 <path
                   fill="currentColor"
@@ -72,7 +72,7 @@ const AlertDialog: React.FC<React.PropsWithChildren<{
                 ></path>
               </svg>
             )}
-            {prop.variant === "error" && (
+            {variant === "error" && (
               <svg width="32" height="32" viewBox="0 0 24 24">
                 <path
                   fill="currentColor"
@@ -80,7 +80,7 @@ const AlertDialog: React.FC<React.PropsWithChildren<{
                 ></path>
               </svg>
             )}
-            {prop.variant === "warning" && (
+            {variant === "warning" && (
               <svg width="32" height="32" viewBox="0 0 24 24">
                 <path
                   fill="currentColor"
@@ -91,10 +91,10 @@ const AlertDialog: React.FC<React.PropsWithChildren<{
           </div>}
 
           <div className="space-y-1">
-            {prop.children}
+            {children}
           </div>
         </div>
-        {prop.closable && <div
+        {closable && <div
           className={`flex cursor-pointer items-center border-l  px-5 ${accentTheming} `}
         >
           <svg width="28" height="28" viewBox="0 0 24 24">
