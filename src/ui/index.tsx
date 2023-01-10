@@ -16,7 +16,7 @@ import ToastUI from "./Toasts";
 const UIComponents = () => {
   return (
     <div className={`p-10 text-center overflow-y-auto  dark:text-gray-200`}>
-      <Box className="h-[300px]" />
+      {/* <Box className="h-[300px]" /> */}
 
       <TableUI className="my-2  p-3" />
 
@@ -37,6 +37,8 @@ const UIComponents = () => {
       <ToastUI className="my-2" />
 
       <SpinnerUI className="my-2" />
+
+
 
       <div className="my-2">
          <AccordionUI/>

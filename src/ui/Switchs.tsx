@@ -7,7 +7,7 @@ const SwitchUI: FC<{ className?: string }> = (prop) => {
   return (
     <div className={prop.className}>
         <Heading>Switch</Heading>
-        <div className="flex flex-wrap gap-8 ">
+        <div className="flex flex-wrap gap-8  py-4">
           <div className="flex items-center">
             <Switch value={isDark} onChange={setIsDark} />
             <span className="ml-1">Switch</span>
