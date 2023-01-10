@@ -3,6 +3,8 @@ import AccordionUI from "./Accordions";
 import AlertUI from "./Alerts";
 import ButtonUI from "./Buttons";
 import CheckBoxUI from "./Checkboxes";
+import { Code } from "./Code";
+import {accordionCode} from "./snipets";
 import InputUI from "./Inputs";
 import ModalUI from "./Modals";
 import RadioButtonUI from "./RadioButtons";
@@ -36,7 +38,10 @@ const UIComponents = () => {
 
       <SpinnerUI className="my-2" />
 
-      <AccordionUI className="my-2" />
+      <div className="my-2">
+         <AccordionUI/>
+         <Code code={accordionCode}/>
+      </div>
     </div>
   );
 };
