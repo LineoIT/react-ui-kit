@@ -2,7 +2,6 @@ import { FC, useEffect, useState } from "react";
 import { Switch } from "../components/Switch";
 import { useTheme } from "../hooks/useTheme";
 
-
 function MenuItem() {
   return (
     <div className="block py-5">
@@ -184,130 +183,135 @@ function MenuItem() {
   );
 }
 
-export const  Breadcrumb : FC<{className?:string}> = ({className}) => {
-    return <nav className={`flex p-3 `+className}>
-    <ol className="inline-flex items-center space-x-1 md:space-x-2">
-      <li className="inline-flex items-center">
-        <a href="#" className="inline-flex items-center font-medium text-primary  hover:text-primary-dar">
-          Dashboard
-        </a>
-      </li>
-      <li>
-        <div className="flex items-center ">
-          <svg className="h-6 w-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path>
-          </svg>
-          <a href="#" className="ml-1 font-medium text-primary  hover:text-primary-dark md:ml-2">
-            Projects
-          </a>
-        </div>
-      </li>
-      <li aria-current="page">
-        <div className="flex items-center">
-          <svg className="h-6 w-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path>
-          </svg>
-          <span className="ml-1 font-medium text-gray-500 md:ml-2">
-            Beyond Builder
-          </span>
-        </div>
-      </li>
-    </ol>
-  </nav>
-}
-
-const Sidebar : FC<{
-  className?:string}> = (prop) => {
-  const {theme, toggleTheme} = useTheme()
-  const [isDark, setIsDark] = useState<boolean>(theme === "dark")
-
-useEffect(() => {
-  if(isDark) toggleTheme("dark")
-  else toggleTheme("light")
-}, [isDark])
-
+const BreadcrumbItem: FC<
+  React.DetailedHTMLProps<
+    React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    HTMLAnchorElement
+  > & {
+    index?: number;
+    disiabled?: boolean
+  }
+> = (props) => {
+  const { className, children, index = 0, disiabled = false } = props;
+  let _className =
+    `inline-flex items-center font-medium 
+    ${disiabled ? 'text-slate-500 ml-1 font-[300] md:ml-2': 'cursor-pointer text-primary  dark:text-accent'} 
+    ${disiabled ? '': 'hover:text-primary-dark  dark:hover:text-accent/30'}`;
+  if (className) _className = _className + className;
 
   return (
-      <aside className=" ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r dark:border-r-white-10 bg-primary-dark  dark:bg-primary-darkness transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
-        <div className="flex items-center p-2 my-5 font-semibold text-white dark:text-gray-300">
-          <svg
-            enableBackground="new 0 0 503.589 503.589"
-            viewBox="0 0 503.589 503.589"
-            className="h-8 w-8 fill-white dark:fill-gray-300"
-          >
-            <g>
-              <path d="m69.954 459.229 168.711-291.214-71.765-123.863-166.9 290.897z" />
-              <path d="m503.355 319.98-166.877-290.858h-143.615l168.521 290.858z" />
-              <path d="m167.917 349.98-72.12 124.488h337.666l70.126-124.488z" />
-            </g>
+    <li className="inline-flex items-center">
+      {index > 0 && (
+        <svg
+          className="h-6 w-6 text-gray-400"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fillRule="evenodd"
+            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+            clipRule="evenodd"
+          ></path>
+        </svg>
+      )}
+      <a {...props} className={_className}>
+        {children}
+      </a>
+    </li>
+  );
+};
+
+const Sidebar: FC<{
+  className?: string;
+}> = (prop) => {
+  const { theme, toggleTheme } = useTheme();
+  const [isDark, setIsDark] = useState<boolean>(theme === "dark");
+
+  useEffect(() => {
+    if (isDark) toggleTheme("dark");
+    else toggleTheme("light");
+  }, [isDark]);
+
+  return (
+    <aside className=" ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r dark:border-r-white-10 bg-primary-dark  dark:bg-primary-darkness transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
+      <div className="flex items-center p-2 my-5 font-semibold text-white dark:text-gray-300">
+        <svg
+          enableBackground="new 0 0 503.589 503.589"
+          viewBox="0 0 503.589 503.589"
+          className="h-8 w-8 fill-white dark:fill-gray-300"
+        >
+          <g>
+            <path d="m69.954 459.229 168.711-291.214-71.765-123.863-166.9 290.897z" />
+            <path d="m503.355 319.98-166.877-290.858h-143.615l168.521 290.858z" />
+            <path d="m167.917 349.98-72.12 124.488h337.666l70.126-124.488z" />
+          </g>
+        </svg>
+        <div className="ml-2">Logo</div>
+      </div>
+      <div className="flex-1 flex flex-col overflow-y-auto">
+        <div className="flex items-center rounded px-4 py-3 cursor-text text-gray-200 dark:text-gray-500 bg-white-10 dark:bg-white-10">
+          <svg viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
+            <path
+              fillRule="evenodd"
+              d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+              clipRule="evenodd"
+            />
           </svg>
-          <div className="ml-2">Logo</div>
         </div>
-        <div className="flex-1 flex flex-col overflow-y-auto">
-          <div className="flex items-center rounded px-4 py-3 cursor-text text-gray-200 dark:text-gray-500 bg-white-10 dark:bg-white-10">
-            <svg viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
-              <path
-                fillRule="evenodd"
-                d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </div>
 
-          <MenuItem />
+        <MenuItem />
 
-          <div className="border border-white-10 my-5" />
+        <div className="border border-white-10 my-5" />
 
-          <div className="flex gap-3 items-center mb-3">
-             <Switch size="small" value={isDark} onChange={setIsDark}/>
-             <div className="text-white-60">{isDark ? "dark": "light"}</div>
-          </div>
-
+        <div className="flex gap-3 items-center mb-3">
+          <Switch size="small" value={isDark} onChange={setIsDark} />
+          <div className="text-white-60">{isDark ? "dark" : "light"}</div>
         </div>
-        
-        <div className=" flex justify-end border-t border-white-10 py-5">
-        
-          <div className="relative flex items-center justify-center w-10 h-10 rounded-full text-white bg-white-10 py-4 mx-2 cursor-pointer hover:bg-white-20 transition-all duration-300 ease-in-out">
-            <svg
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-4 h-4"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-              />
-            </svg>
-            <span className="absolute flex h-3 w-3 right-1 top-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-rose-500"></span>
-            </span>
-          </div>
+      </div>
 
-          <div className=" relative flex items-center justify-center w-10 h-10 rounded-full text-white bg-white-10 py-4 mx-2 cursor-pointer hover:bg-white-20 transition-all duration-300 ease-in-out">
-            <svg
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-4 h-4"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
-              />
-            </svg>
-
-            <span className="absolute flex  right-[-5px] top-[-5px] bg-green-500 rounded-full">
-                <span className="text-white p-1 text-[10px]">21</span>
-            </span>
-          </div>
+      <div className=" flex justify-end border-t border-white-10 py-5">
+        <div className="relative flex items-center justify-center w-10 h-10 rounded-full text-white bg-white-10 py-4 mx-2 cursor-pointer hover:bg-white-20 transition-all duration-300 ease-in-out">
+          <svg
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-4 h-4"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+            />
+          </svg>
+          <span className="absolute flex h-3 w-3 right-1 top-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-rose-500"></span>
+          </span>
         </div>
-      </aside>
+
+        <div className=" relative flex items-center justify-center w-10 h-10 rounded-full text-white bg-white-10 py-4 mx-2 cursor-pointer hover:bg-white-20 transition-all duration-300 ease-in-out">
+          <svg
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-4 h-4"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
+            />
+          </svg>
+
+          <span className="absolute flex  right-[-5px] top-[-5px] bg-green-500 rounded-full">
+            <span className="text-white p-1 text-[10px]">21</span>
+          </span>
+        </div>
+      </div>
+    </aside>
   );
 };
 
