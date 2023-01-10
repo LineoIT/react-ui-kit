@@ -19,6 +19,7 @@ export const Radio: React.FC<
       peer-disabled:border-gray-300 dark:peer-disabled:border-gray-600
       peer-disabled:bg-transparent 
       peer-disabled:text-slate-100 dark:peer-disabled:text-transparent
+      peer-disabled:cursor-not-allowed
      "
       >
         <div className="flex items-center justify-between">

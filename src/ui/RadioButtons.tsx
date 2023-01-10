@@ -22,11 +22,6 @@ const RadioButtonUI: FC<{ className?: string }> = (prop) => {
             <span className="ml-2">Disable</span>
           </div>
 
-          <div className="flex items-center">
-            <input type="radio" disabled name="checkable2" />
-            <span className="ml-2">Disable</span>
-          </div>
-
         </div>
     </div>
   );

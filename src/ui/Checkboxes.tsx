@@ -8,11 +8,15 @@ const CheckBoxUI: FC<{className?:string}> = (prop) => {
         <div className="flex items-center flex-wrap gap-8 py-2">
           <div className="flex items-center">
             <CheckBox />
-            <span className="ml-1">Checkbox</span>
+            <span className="ml-2">Default</span>
           </div>
           <div className="flex items-center">
             <CheckBox   defaultChecked/>
-            <span className="ml-1">Checkbox checked</span>
+            <span className="ml-2">Checked</span>
+          </div>
+          <div className="flex items-center">
+            <CheckBox   disabled/>
+            <span className="ml-2">Disabled</span>
           </div>
         </div>
     </div>
