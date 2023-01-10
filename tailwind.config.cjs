@@ -22,6 +22,8 @@ module.exports = {
         'opacity-visibility': 'opacity, visibility',
         'opacity-transform': 'visibility, transform',
         'opacity-visibility-transform': 'opacity, visibility, transform',
+        'max-height': 'max-height',
+        'padding': 'padding'
       },
       colors: {
         'primary': withOpacity('--x-primary'),

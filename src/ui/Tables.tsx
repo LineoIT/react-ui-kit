@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Table } from "../components/Table";
 import { TableBody, TableCell, TableHead, TableRow } from "../components/Table/Table";
+import { Heading } from "./Heading";
 
 
 const items = ["bg-rose-500", "bg-yellow-500", "bg-blue-500", "bg-orange-500", "bg-green-500", "bg-sky-500"]
@@ -8,8 +9,7 @@ const items = ["bg-rose-500", "bg-yellow-500", "bg-blue-500", "bg-orange-500", "
 export const TableUI: FC<{ className?: string }> = (prop) => {
   return (
     <div className={prop.className}>
-      <fieldset className="border p-2 ">
-        <legend className="p-2  dark:text-gray-400">Tables</legend>
+        <Heading>Table</Heading>
         <div className="flex items-center flex-wrap gap-8 py-2">
            <Table className=" w-full bg-white dark:bg-transparent">
              <TableHead>
@@ -37,7 +37,6 @@ export const TableUI: FC<{ className?: string }> = (prop) => {
              </TableBody>
            </Table>
         </div>
-      </fieldset>
     </div>
   );
 };

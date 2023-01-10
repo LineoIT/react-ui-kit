@@ -11,7 +11,7 @@
       --color-skin: rgb(245, 245, 245);
       --color-skin-dark: ​rgb(75, 85, 99);
       --color-text: ​rgb(68, 68, 68);
-      --color-text-dark: ​rgb(204, 204, 204);
+      --color-text-dark: rgb(101, 200, 237);
       --icon-color: rgb(154, 168, 188);
       --highlight-color: rgb(228, 238, 253);
       --border-color: rgb(246, 248, 251);
@@ -22,7 +22,7 @@
       --x-accent: 83, 128, 199;
       --x-skin: 245, 245, 245;
       --x-skin-dark: 75, 85, 99;
-      --x-text: 68, 68, 68;
+      --x-text: 101, 200, 237;
       --x-text-dark: ​204, 204, 204;
       --x-icon: 154, 168, 188;
       --x-highlight: 228, 238, 253;

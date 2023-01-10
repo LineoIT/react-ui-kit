@@ -1,13 +1,14 @@
 import React, { FC } from "react";
 import {Dialog} from "../components/Dialog";
 import { Modal } from "../components/Modal";
+import { Heading } from "./Heading";
 
 const ModalUI : FC<{className?:string}> = (prop) => {
     const [openModal, setOpenModal] = React.useState<boolean>();
 
     return <>
-      <div className={prop.className}> <fieldset className="border p-2">
-        <legend className="p-2  dark:text-gray-400">Modals</legend>
+      <div className={prop.className}> 
+      <Heading>Modals</Heading>
         <div className="flex items-center flex-wrap gap-8 py-2">
         <Dialog
             title="Dark mode"
@@ -19,7 +20,6 @@ const ModalUI : FC<{className?:string}> = (prop) => {
             maxime necessitatibus nisi libero.
           </Dialog>
         </div>
-  </fieldset>
   </div>
 
   <Modal

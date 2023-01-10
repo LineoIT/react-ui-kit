@@ -1,11 +1,12 @@
 import { FC } from "react";
 import { Alert } from "../components/Alert";
+import { Heading } from "./Heading";
 
 const AlertUI: FC<{ className?: string }> = (prop) => {
   return (
     <div className={prop.className}>
-      <fieldset className="border p-2 flex">
-        <legend className="p-2  dark:text-gray-400 ">Alerts</legend>
+        <Heading>Alerts</Heading>
+        <div className="flex">
         <div className="flex-1 flex flex-col justify-center gap-2 py-2">
           <Alert variant="error">
             <Alert.Header>Warning Title goes Here</Alert.Header>
@@ -106,7 +107,7 @@ const AlertUI: FC<{ className?: string }> = (prop) => {
             </Alert.Content>
           </Alert>
         </div>
-      </fieldset>
+        </div>
     </div>
   );
 };

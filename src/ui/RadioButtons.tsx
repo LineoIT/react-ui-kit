@@ -1,11 +1,11 @@
 import { FC } from "react";
 import {Radio} from "../components/Radio";
+import { Heading } from "./Heading";
 
 const RadioButtonUI: FC<{ className?: string }> = (prop) => {
   return (
     <div className={prop.className}>
-      <fieldset className="border p-2">
-        <legend className="p-2  dark:text-gray-400">Radio buttons</legend>
+       <Heading>TableRadio buttons</Heading> 
         <div className="flex items-center flex-wrap gap-8 p-2 ">
           <div className="flex items-center">
             <Radio name="radio2" />
@@ -27,7 +27,6 @@ const RadioButtonUI: FC<{ className?: string }> = (prop) => {
             <span className="ml-1">Radio checked</span>
           </div>
         </div>
-      </fieldset>
     </div>
   );
 };

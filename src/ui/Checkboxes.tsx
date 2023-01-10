@@ -1,10 +1,10 @@
 import { FC } from "react";
 import {CheckBox} from "../components/CheckBox/";
+import { Heading } from "./Heading";
 
 const CheckBoxUI: FC<{className?:string}> = (prop) => {
     return <div className={prop.className}>
-        <fieldset className="border p-2">
-        <legend className="p-2  dark:text-gray-400">Checkboxes</legend>
+         <Heading>Checkboxes</Heading>
         <div className="flex items-center flex-wrap gap-8 py-2">
           <div className="flex items-center">
             <CheckBox />
@@ -15,7 +15,6 @@ const CheckBoxUI: FC<{className?:string}> = (prop) => {
             <span className="ml-1">Checkbox checked</span>
           </div>
         </div>
-  </fieldset>
     </div>
 }
  

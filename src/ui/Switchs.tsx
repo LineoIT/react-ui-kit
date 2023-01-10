@@ -1,12 +1,12 @@
 import { FC, useState } from "react";
 import  { Switch, Switch2 } from "../components/Switch";
+import { Heading } from "./Heading";
 
 const SwitchUI: FC<{ className?: string }> = (prop) => {
   const [isDark, setIsDark] = useState(false)
   return (
     <div className={prop.className}>
-      <fieldset className="border p-2">
-        <legend className="p-2  dark:text-gray-400">Switch</legend>
+        <Heading>Switch</Heading>
         <div className="flex flex-wrap gap-8 ">
           <div className="flex items-center">
             <Switch value={isDark} onChange={setIsDark} />
@@ -25,7 +25,6 @@ const SwitchUI: FC<{ className?: string }> = (prop) => {
             <span className="ml-1">Switch2</span>
           </div>
         </div>
-      </fieldset>
     </div>
   );
 };

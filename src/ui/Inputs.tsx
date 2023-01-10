@@ -4,6 +4,7 @@ import { SearchField } from "../components/SearchField/";
 import { SelectField } from "../components/SelectField/";
 import { TextField } from "../components/TextField/";
 import { Dropdown } from "../components/Dropdown";
+import { Heading } from "./Heading";
 
 const InputUI: FC<{ className?: string }> = (prop) => {
 
@@ -22,9 +23,7 @@ const InputUI: FC<{ className?: string }> = (prop) => {
   }
   return (
     <div className={prop.className}>
-      {" "}
-      <fieldset className="border p-2">
-        <legend className="p-2  dark:text-gray-400">Input fields</legend>
+       <Heading>TextField</Heading>
         <div className="flex items-center flex-wrap gap-8 py-2">
           <SearchField placeholder="search" />
           <TextField placeholder="normal" />
@@ -52,7 +51,6 @@ const InputUI: FC<{ className?: string }> = (prop) => {
             return {value: country.name, title: country.name}
           })}/>
         </div>
-      </fieldset>
     </div>
   );
 };
