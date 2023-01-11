@@ -1,1 +1,1 @@
-export {ChevronDownIcon, SearchIcon} from './Icons'
+export * from './Icons'
