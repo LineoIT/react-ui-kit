@@ -76,6 +76,7 @@ module.exports = {
       animation: {
         'spin-slow': 'spin 3s linear infinite',
         'slide-up': 'slide-up .2s ease-in-out',
+        'slide-left': 'slide-left .5s ease-in-out',
         toast: 'slide-left .3s forwards',
         fade: 'fade .3s forwards',
         loader: 'fade .3s infinite'

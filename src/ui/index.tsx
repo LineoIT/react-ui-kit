@@ -12,6 +12,8 @@ import { SpinnerUI } from "./Spinners";
 import SwitchUI from "./Switchs";
 import { TableUI } from "./Tables";
 import ToastUI from "./Toasts";
+import LoginPage from "./page/Login";
+import { Heading } from "./Heading";
 
 const UIComponents = () => {
   return (
@@ -39,11 +41,19 @@ const UIComponents = () => {
       <SpinnerUI className="my-2" />
 
 
-
+{/* 
       <div className="my-2">
          <AccordionUI/>
          <Code content={accordionCode}/>
+      </div> */}
+
+      <div>
+         <Heading>Login UI</Heading>
+         <LoginPage/>
       </div>
+
+     
+      
     </div>
   );
 };

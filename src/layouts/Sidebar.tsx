@@ -56,7 +56,7 @@ const Sidebar: FC<{
       </div>
 
       <div className=" relative flex justify-end border-t border-white-10 py-5">
-        <IconButton className="relative" onClick={() => openBottomMenu(true)}>
+        <IconButton className="relative w-10 h-10 py-4 mx-2" onClick={() => openBottomMenu(true)}>
           <UserProfileIcon />
           <span className="absolute flex h-3 w-3 right-1 top-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
@@ -64,7 +64,7 @@ const Sidebar: FC<{
           </span>
         </IconButton>
 
-        <IconButton className="relative" >
+        <IconButton className="relative w-10 h-10 py-4 mx-2" >
           <NotificationIcon className="w-4 h-4" />
           <span className="absolute flex  right-[-5px] top-[-5px] bg-green-500 rounded-full">
             <span className="text-white p-1 text-[10px]">21</span>
