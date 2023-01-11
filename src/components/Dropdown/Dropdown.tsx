@@ -21,13 +21,6 @@ export const Dropdown: FC<{
     return ""
   }, [selected, placeholder])
 
-  const color = useMemo(
-    () =>
-      error 
-        ? "text-red-500 border-red-400 focus-within:text-red-700 focus-within:ring-red-500  focus-within:border-red-500"
-        : "text-gray-500 border-gray-400 focus-within:text-gray-700 focus-within:ring-primary  focus-within:border-primary ",
-    [error]
-  );
 
   return (
     <div className="relative min-w-[180px] font-medium ">
@@ -51,11 +44,11 @@ export const Dropdown: FC<{
         </svg>
       </div>
       <ul
-        className={`absolute text-gray-500 bg-white dark:bg-gray-700 dark:text-gray-300 drop-shadow-md  rounded  mt-1 overflow-y-auto transition-all duration-200  ${
-          open ? "max-h-60" : "max-h-0"
+        className={`absolute text-gray-500  bg-white dark:bg-gray-700 dark:text-gray-300 shadow drop-shadow-2xl  rounded  mt-1 overflow-y-auto transition-all duration-200  ${
+          open ? "max-h-60  ring-accent ring-1" : "max-h-0"
         } `}
       >
-        <div className="flex items-center px-2 sticky top-0 border-b dark:border-b-white-30 focus-within:border-primary bg-white dark:bg-gray-900 ">
+        <div className="flex items-center px-2 sticky top-0 border-b dark:border-b-white-30 focus-within:border-primary bg-white dark:bg-gray-900  ">
           <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4  text-gray-500 dark:text-gray-400">
             <path
               fillRule="evenodd"
