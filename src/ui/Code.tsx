@@ -1,15 +1,15 @@
 import { FC } from "react";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export const Code: FC<{
-  code: string;
+  content: string;
   language?: string
 }> = (props) => {
-  const { code, language= "javascript" } = props;
+  const {  language= "javascript", content } = props;
   return (
-    <SyntaxHighlighter language={language} style={dracula}>
-      {code}
-    </SyntaxHighlighter>
+   <pre className="bg-black text-gray-400 text-left p-2">
+    <code >
+      {content}
+    </code>
+    </pre> 
   );
 };

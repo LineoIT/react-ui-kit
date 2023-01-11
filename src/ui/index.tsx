@@ -42,7 +42,7 @@ const UIComponents = () => {
 
       <div className="my-2">
          <AccordionUI/>
-         <Code code={accordionCode}/>
+         <Code content={accordionCode}/>
       </div>
     </div>
   );
