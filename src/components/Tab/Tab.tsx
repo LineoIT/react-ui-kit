@@ -21,8 +21,8 @@ const TabHeader: FC<
   const {
     children,
     tab = 0,
-    className = "cursor-pointer p-2 first:border-l border-y border-r last:rounded-tr first:rounded-tl  border-primary",
-    activeClass = "bg-white dark:bg-skin-dark text-primary border-b-0 ",
+    className = "cursor-pointer py-2 px-7 first:border-l border-t last:border-r last:rounded-tr first:rounded-tl  border-primary",
+    activeClass = "bg-white dark:bg-skin-dark text-primary dark:text-accent border-b-0 ",
     slaveClass = "text-primary dark:text-gray-400",
   } = props;
 
@@ -49,7 +49,7 @@ const TabItem: FC<
   }
 > = (props) => {
     const { children, tab = 0, 
-        className="py-4 bg-white border-x border-b border-primary dark:bg-skin-dark w-full min-h-[100px] " 
+        className="py-4 bg-white border-x border-b border-primary rounded-br rounded-bl dark:bg-skin-dark w-full min-h-[100px] " 
     } = props
   const { currentTab } = React.useContext(TabContext);
   if (tab === currentTab) return <div {...props} className={className}>{children}</div>;

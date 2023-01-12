@@ -1,13 +1,12 @@
 import { FC } from "react";
-import { Spinner } from "../components/Spinner";
-import { ArcSpinner, DotSpinner } from "../components/Spinner/Spinner";
 import { Tab } from "../components/Tab";
 import { Heading } from "./Heading";
+import LoginPage from "./page/Login";
 
-export const SpinnerUI: FC<{ className?: string }> = (prop) => {
+const PageLoginUI: FC<{ className?: string }> = (prop) => {
   return (
     <div className={prop.className}>
-      <Heading>Spinners</Heading>
+      <Heading>Login UI</Heading>
 
       <div className="  py-2">
         <Tab
@@ -21,11 +20,7 @@ export const SpinnerUI: FC<{ className?: string }> = (prop) => {
           </div>
           <div className="flex">
             <Tab.Content tab={0}>
-              <div className="flex items-center flex-wrap gap-8 p-4">
-                <Spinner />
-                <ArcSpinner />
-                <DotSpinner />
-              </div>
+              <LoginPage />
             </Tab.Content>
             <Tab.Content tab={1}>Code will be here</Tab.Content>
           </div>
@@ -34,3 +29,5 @@ export const SpinnerUI: FC<{ className?: string }> = (prop) => {
     </div>
   );
 };
+
+export default PageLoginUI;

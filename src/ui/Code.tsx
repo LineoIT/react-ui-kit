@@ -6,9 +6,9 @@ export const Code: FC<{
 }> = (props) => {
   const {  language= "javascript", content } = props;
   return (
-   <pre className="bg-black text-gray-400 text-left p-2">
+   <pre className="bg-black text-accent text-left p-2">
     <code >
-      {content}
+     {content}
     </code>
     </pre> 
   );

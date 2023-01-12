@@ -15,6 +15,7 @@ import ToastUI from "./Toasts";
 import LoginPage from "./page/Login";
 import { Heading } from "./Heading";
 import TiersUI from "./Tiers";
+import PageLoginUI from "./PageLoginUI";
 
 const UIComponents = () => {
   return (
@@ -43,17 +44,9 @@ const UIComponents = () => {
 
       <TiersUI  className="my-2"/>
 
+      <AccordionUI/>
 
-{/* 
-      <div className="my-2">
-         <AccordionUI/>
-         <Code content={accordionCode}/>
-      </div> */}
-
-      <div>
-         <Heading>Login UI</Heading>
-         <LoginPage/>
-      </div>
+      <PageLoginUI />
 
      
       
