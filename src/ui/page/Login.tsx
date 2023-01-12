@@ -48,9 +48,10 @@ const LoginPage: FC<
 
   return (
     <div className="flex flex-col items-center justify-center bg-skin dark:bg-primary-darkness top-0 right-0 left-0 bottom-0 ">
-      <div className="flex items-center mb-7 text-primary dark:text-gray-300">
-        <Logo className="h-6 w-6 fill-primary dark:fill-gray-300" />
-        <div className=" ml-2">Logo</div>
+      <div className="flex items-center ">
+        <Logo className="h-[138px] w-[223px] 
+        text-primary dark:text-gray-300 
+        fill-primary dark:fill-gray-300 " />
       </div>
 
       <form

@@ -8,6 +8,7 @@ import {
 import { Switch } from "../components/Switch";
 import { useTheme } from "../hooks/useTheme";
 import { BottomMenu } from "./BottomMenu";
+import { Logo } from "./Logo";
 import { MenuItems } from "./Menu";
 
 
@@ -26,19 +27,11 @@ const Sidebar: FC<{
 
   return (
     <aside className=" ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r dark:border-r-white-10 bg-primary-dark  dark:bg-primary-darkness transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
-      <div className="flex items-center p-2 my-5 font-semibold text-white dark:text-gray-300">
-        <svg
-          enableBackground="new 0 0 503.589 503.589"
-          viewBox="0 0 503.589 503.589"
-          className="h-8 w-8 fill-white dark:fill-gray-300"
-        >
-          <g>
-            <path d="m69.954 459.229 168.711-291.214-71.765-123.863-166.9 290.897z" />
-            <path d="m503.355 319.98-166.877-290.858h-143.615l168.521 290.858z" />
-            <path d="m167.917 349.98-72.12 124.488h337.666l70.126-124.488z" />
-          </g>
-        </svg>
-        <div className="ml-2">Logo</div>
+      <div className="flex items-center px-2 font-semibold ">
+       
+      <Logo className="h-[98px] w-[180px] 
+        text-white dark:text-gray-300 
+        fill-white dark:fill-gray-300 " />
       </div>
       <div className="flex-1 flex flex-col overflow-y-auto">
         <div className="flex items-center rounded px-4 py-3 cursor-text text-gray-200 dark:text-gray-500 bg-white-10 dark:bg-white-10">
