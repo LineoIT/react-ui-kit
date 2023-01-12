@@ -12,7 +12,7 @@ import {
 
 export function MenuItems() {
     return (
-      <div className="block py-5">
+      <div className="block py-5 font-light">
         <a
           href="#"
           className="flex text-white hover:bg-white-10 cursor-pointer py-3 px-2 items-center"

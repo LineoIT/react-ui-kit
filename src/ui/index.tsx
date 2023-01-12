@@ -14,6 +14,7 @@ import { TableUI } from "./Tables";
 import ToastUI from "./Toasts";
 import LoginPage from "./page/Login";
 import { Heading } from "./Heading";
+import TiersUI from "./Tiers";
 
 const UIComponents = () => {
   return (
@@ -39,6 +40,8 @@ const UIComponents = () => {
       <ToastUI className="my-2" />
 
       <SpinnerUI className="my-2" />
+
+      <TiersUI  className="my-2"/>
 
 
 {/* 

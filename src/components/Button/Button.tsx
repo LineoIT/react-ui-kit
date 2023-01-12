@@ -3,6 +3,7 @@ import * as React from "react";
 type Variant = "inverted" | "default" | "outlined";
 type Size = "small" | "medium" | "large" | "none";
 type Shape = "flated" | "rounded" | "semi-rounded";
+type Color = "primary" | "success" | "error" | "secondary";
 
 export const Button: React.FC<
   React.DetailedHTMLProps<
@@ -13,6 +14,7 @@ export const Button: React.FC<
     size?: Size;
     shape?: Shape;
     className?: string;
+    color?: Color;
   }
 > = (props) => {
 
@@ -45,6 +47,7 @@ export const Button: React.FC<
  bg-primary  dark:bg-primary disabled:bg-gray-200 hover:bg-primary-dark  dark:disabled:bg-gray-500   `
      : ""
  }`
+
 
  if(props.className) _className = _className + " "+ className
 

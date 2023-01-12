@@ -1,67 +1,81 @@
-import React, { FC,  } from 'react'
+import React, { FC } from "react";
 
-const TabContext = React.createContext({ currentTab: 0, setCurrentTab: (tab: number) => { }, onTabItemChange: (tab: number) => { } })
+const TabContext = React.createContext({
+  currentTab: 0,
+  setCurrentTab: (tab: number) => {},
+  onTabItemChange: (tab: number) => {},
+});
 
-type BaseProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+type BaseProps = React.DetailedHTMLProps<
+  React.HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>;
 
-const TabHeaders : React.FC<BaseProps> & {
+const TabHeader: FC<
+  BaseProps & {
+    tab: number;
+    activeClass?: string;
+    slaveClass?: string;
+  }
+> = (props) => {
+  const {
+    children,
+    tab = 0,
+    className = "cursor-pointer p-2 first:border-l border-y border-r last:rounded-tr first:rounded-tl  border-primary",
+    activeClass = "bg-white dark:bg-skin-dark text-primary border-b-0 ",
+    slaveClass = "text-primary dark:text-gray-400",
+  } = props;
 
-} = ({ children, className }) => {
-    return (<div className={['tab__header', className].join(' ')}>
-        {children}
-    </div>);
-}
+  const { currentTab, setCurrentTab, onTabItemChange } =
+    React.useContext(TabContext);
+  return (
+    <div
+      className={`${className} ${
+        tab === currentTab ? activeClass : slaveClass
+      }`}
+      onClick={() => {
+        setCurrentTab(tab);
+        if (onTabItemChange) onTabItemChange(tab);
+      }}
+    >
+      {children}
+    </div>
+  );
+};
 
-const TabHeader :  FC<BaseProps & {
-    tab: number,
-    activeClass?: string
-}> = (props) => {
-    const { children, tab = 0, className, activeClass = "active" } = props
-    
-    const { currentTab, setCurrentTab, onTabItemChange } = React.useContext(TabContext)
-    return (<div className={['tab_header_item', className, tab === currentTab ? activeClass : ''].join(' ')}
-        onClick={() => {
-            setCurrentTab(tab)
-            if (onTabItemChange)
-                onTabItemChange(tab)
-        }
-        }>
-        {children}
-    </div>);
-}
+const TabItem: FC<
+  BaseProps & {
+    tab: number;
+  }
+> = (props) => {
+    const { children, tab = 0, 
+        className="py-4 bg-white border-x border-b border-primary dark:bg-skin-dark w-full min-h-[100px] " 
+    } = props
+  const { currentTab } = React.useContext(TabContext);
+  if (tab === currentTab) return <div {...props} className={className}>{children}</div>;
+  return null;
+};
 
-const TabItem : FC<BaseProps & {
-    tab: number
-}> = ({ children, tab = 0 }) => {
-    const { currentTab } = React.useContext(TabContext)
-    if (tab === currentTab)
-        return <>{children}</>
-    return null
-}
-
-const TabContent: FC<BaseProps> = ({ children, className }) => {
-    // const { currentTab } = React.useContext(TabContext)
-    // return (<div className={className}>{children[currentTab]}</div>);
-    return (<div className={className}>{children}</div>);
-}
-
-const Tab: FC<BaseProps & {
-    onTabItemChange: (tab: number) => void
-}> & {
-    Headers: typeof TabHeaders,
-    Header: typeof TabHeader,
-    Content: typeof TabContent,
-    Item: typeof TabItem,
-} = ({ children, onTabItemChange }) => {
-    const [currentTab, setCurrentTab] = React.useState<number>(0)
-    return <TabContext.Provider value={{ currentTab, setCurrentTab, onTabItemChange }}>
-        {children}
+const Tab: FC<
+  BaseProps & {
+    onTabItemChange: (tab: number) => void;
+  }
+> & {
+  Header: typeof TabHeader;
+  Content: typeof TabItem;
+} = (props) => {
+    const { children, onTabItemChange, className = "flex flex-col" } = props
+  const [currentTab, setCurrentTab] = React.useState<number>(0);
+  return (
+    <TabContext.Provider value={{ currentTab, setCurrentTab, onTabItemChange }}>
+      <div className={className}>
+         {children}
+      </div>
     </TabContext.Provider>
-}
+  );
+};
 
-Tab.Headers = TabHeaders
-Tab.Header = TabHeader
-Tab.Content = TabContent
-Tab.Item = TabItem
+Tab.Header = TabHeader;
+Tab.Content = TabItem;
 
-export default Tab;
+export { Tab };

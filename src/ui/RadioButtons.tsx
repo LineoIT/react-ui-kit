@@ -5,7 +5,7 @@ import { Heading } from "./Heading";
 const RadioButtonUI: FC<{ className?: string }> = (prop) => {
   return (
     <div className={prop.className}>
-       <Heading>TableRadio buttons</Heading> 
+       <Heading>Radio buttons</Heading> 
         <div className="flex items-center flex-wrap gap-8 p-2 ">
           <div className="flex items-center">
             <Radio name="radio2" />
