@@ -4,15 +4,17 @@ import { FC, useMemo, useState } from "react";
 export type DowndownOption = {
   value: string
   title: string
-}
+} | undefined
 export const Dropdown: FC<{
   placeholder?:string
   items: DowndownOption[]
   error?: boolean
-}> = ({placeholder="", items = [], error = false}) => {
+  defaultValue?: DowndownOption
+}> = ({placeholder="", items = [], error = false, defaultValue}) => {
   const [inputValue, setInputValue] = useState("");
-  const [selected, setSelected] = useState<DowndownOption>();
+  const [selected, setSelected] = useState<DowndownOption>(defaultValue);
   const [open, setOpen] = useState(false);
+
 
   const defaultSpace = useMemo(() => {
     if (placeholder === "")

@@ -8,10 +8,10 @@ export const SelectField: React.FC<
     inputClass?: string;
     error?: boolean;
   }
-> = ({error=false, inputClass, children, ...rest}) => {
+> = ({ error = false, inputClass, children, ...rest }) => {
   const color = React.useMemo(
     () =>
-      error 
+      error
         ? "text-red-500 border-red-400 focus-within:text-red-700 focus-within:ring-red-500  focus-within:border-red-500"
         : "text-gray-500 border-gray-400 focus-within:text-gray-700 focus-within:ring-primary  focus-within:border-primary ",
     [error]
@@ -28,10 +28,11 @@ export const SelectField: React.FC<
           inputClass
         }
       >
-        <option defaultValue="">{rest.placeholder}</option>
+        <option defaultValue="" disabled>
+          {rest.placeholder}
+        </option>
         {children}
       </select>
     </div>
   );
 };
-
