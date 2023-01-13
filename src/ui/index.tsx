@@ -16,6 +16,7 @@ import LoginPage from "./page/Login";
 import { Heading } from "./Heading";
 import TiersUI from "./Tiers";
 import PageLoginUI from "./PageLoginUI";
+import DatePicker from "../components/DatePicker/DatePicker";
 
 const UIComponents = () => {
   return (
@@ -48,7 +49,7 @@ const UIComponents = () => {
 
       <PageLoginUI />
 
-     
+      <DatePicker/>
       
     </div>
   );
