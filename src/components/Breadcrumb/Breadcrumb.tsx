@@ -46,16 +46,14 @@ export const Breadcrumb: FC<{
      className?: string
 }> = ({ className, items = [] }) => {
 
-    let _className = "flex p-3"
+    let _className = "flex p-3 md:text-[14px]"
     if(className) _className = _className +" "+ className
 
   return (
     <nav className={_className}>
-      <ol className="inline-flex items-center space-x-1 md:space-x-2 ">
-        {items.map((item,i) =>  <BreadcrumbItem key={i} index={i} disabled={i+1 === items.length}>
+        {items.map((item,i) =>  <BreadcrumbItem   key={i} index={i} disabled={i+1 === items.length}>
             {item.title}
         </BreadcrumbItem>)}
-      </ol>
     </nav>
   );
 };

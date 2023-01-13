@@ -49,7 +49,7 @@ const UIComponents = () => {
 
       <PageLoginUI />
 
-      <DatePicker/>
+      {/* <DatePicker/> */}
       
     </div>
   );

@@ -52,7 +52,7 @@ export const TableCell: FC<React.DetailedHTMLProps<React.TdHTMLAttributes<HTMLTa
  type?: "td" | "th"
 }> = (prop) => {
   const css = useMemo(() => {
-   return prop.type === "th" ? "text-[16px] font-[400] text-gray-800 dark:text-white": " text-[14px]"
+   return prop.type === "th" ? " md:text-[14px] text-[16px] font-[400] text-gray-800 dark:text-white": " md:text-[13px] text-[14px]"
   }, [prop.type])
 
   return (
