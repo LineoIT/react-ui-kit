@@ -1,29 +1,36 @@
-import { FC } from "react";
+import { CSSProperties, FC } from "react";
 
 
-export const Spinner: FC<{
+export const Spinner: FC<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> &{
   className?: string;
-}> = ({ className = "w-6 h-6 border-2 border-t-transparent border-primary dark:border-accent dark:border-t-transparent" }) => {
+  variant?: "default" | "inverted"
+  size?: string
+  stroke?: string
+}> = (props) => {
+  
+  const { 
+    variant  = "default",
+    stroke = "2px",
+    size = "1.5rem"
+  } = props
+
+  let _style : CSSProperties = {}
+  _style.borderWidth = stroke
+  _style.height = size
+  _style.width = size
+
+  if(props.style) _style = {..._style, ...props.style}
+
+  let borderStyle = variant === "inverted" ? 
+   `border-white dark:border-gray-400` :
+   `border-primary dark:border-accent`
+
   return (
-    <div className={`border-solid rounded-full animate-spin ${className}`}/>
+    <div {...props} className={`
+    border-solid rounded-full animate-spin 
+    border-t-transparent dark:border-t-transparent 
+    ${borderStyle}`} style={_style}/>
   );
 };
 
-export const ArcSpinner: FC<{
-  className?: string;
-}> = ({ className = "w-6 h-6 border-b-2 border-primary dark:border-accent " }) => {
-  return (
-   <div className={`rounded-full animate-spin ${className}`}></div>
-  );
-};
-export const DotSpinner: FC<{
-  className?: string;
-}> = ({ className = "w-3 h-3 bg-primary dark:bg-accent" }) => {
-  return (
-    <div className="flex items-center justify-center space-x-2 animate-pulse">
-      <div className={`rounded-full ${className}`}></div>
-      <div className={`rounded-full ${className}`}></div>
-      <div className={`rounded-full ${className}`}></div>
-    </div>
-  );
-};
+
