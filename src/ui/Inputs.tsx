@@ -6,6 +6,7 @@ import { TextField } from "../components/TextField/";
 import { Dropdown } from "../components/Dropdown";
 import { Heading } from "./Heading";
 import { Tab } from "../components/Tab";
+import { TextArea } from "../components/TextArea";
 
 const InputUI: FC<{ className?: string }> = (prop) => {
   const [countries, setCountries] = React.useState<{ name: string }[]>([]);
@@ -76,6 +77,10 @@ const InputUI: FC<{ className?: string }> = (prop) => {
                       return { value: country.name, title: country.name };
                     })}
                   />
+                </div>
+
+                <div className="flex items-center flex-wrap gap-8">
+                   <TextArea rows={5} cols={300} placeholder="TextArea"/>
                 </div>
               </div>
             </Tab.Content>
