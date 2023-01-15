@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Spinner } from "../components/Spinner";
-import { ArcSpinner, DotSpinner } from "../components/Spinner/Spinner";
+import { ArcSpinner, DotSpinner } from "../components/Spinner/";
 import { Tab } from "../components/Tab";
 import { Heading } from "./Heading";
 

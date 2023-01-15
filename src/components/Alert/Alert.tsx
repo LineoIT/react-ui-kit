@@ -52,7 +52,7 @@ const AlertDialog: React.FC<React.PropsWithChildren<{
   }, [variant]);
 
   return (
-    <div className={`max-w-lg overflow-hidden rounded-lg shadow-md ${theming}`}>
+    <div className={`overflow-hidden rounded-lg ${theming}`}>
       <div className="flex">
         <div className="flex items-center gap-4 px-4 py-4">
           {icon && <div className="shrink-0">
