@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { FC } from "react";
 import { SearchField } from "../components/SearchField/";
 import { SelectField } from "../components/SelectField/";
-import { TextField } from "../components/TextField/";
+import { NumericField, TextField } from "../components/TextField/";
 import { Dropdown } from "../components/Dropdown";
 import { Heading } from "./Heading";
 import { Tab } from "../components/Tab";
@@ -42,6 +42,7 @@ const InputUI: FC<{ className?: string }> = (prop) => {
                 <div className="flex items-center flex-wrap gap-8 py-2">
                   <SearchField placeholder="search" />
                   <TextField placeholder="normal" />
+                  <NumericField placeholder="only numeric" />
                   <TextField error placeholder="error" />
                 </div>
                 <div className="flex items-center flex-wrap gap-8">

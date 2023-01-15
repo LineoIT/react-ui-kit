@@ -1,15 +1,16 @@
 import * as React from "react";
 
-export const TextField: React.FC<
-  React.DetailedHTMLProps<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
-  > & {
-    inputClass?: string;
-    error?: boolean;
-    shape?: "rounded" | "flat"
-  }
-> = ({error=false, inputClass, shape, ...rest}) => {
+export type TextFieldProps = 
+React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+> & {
+  inputClass?: string;
+  error?: boolean;
+  shape?: "rounded" | "flat"
+}
+
+export const TextField: React.FC<TextFieldProps> = ({error=false, inputClass, shape, ...rest}) => {
   const color = React.useMemo(
     () =>
       error 
