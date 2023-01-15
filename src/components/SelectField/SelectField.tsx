@@ -24,7 +24,7 @@ export const SelectField: React.FC<
       <select
         {...rest}
         className={
-          `px-2 py-[0.6rem]  ring-0 focus:outline-none bg-transparent focus:ring-0 dark:bg-transparent dark:placeholder-gray-400` +
+          `w-full px-2 py-[0.6rem]  ring-0 focus:outline-none bg-transparent focus:ring-0 dark:bg-transparent dark:placeholder-gray-400` +
           inputClass
         }
       >
