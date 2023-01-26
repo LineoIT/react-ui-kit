@@ -4,14 +4,19 @@ import { Tab } from "../components/Tab";
 import {
   Toast,
   Toastable,
-  ToastProvider,
+  ToastContainer,
   useToast,
 } from "../components/Toast/Toast";
+import {useToasts, ToastProvider as TProvider} from "../components/Toast/Toast2"
+
 import { Heading } from "./Heading";
 
 const ToastUI: FC<{ className?: string }> = (prop) => {
   const toastRef = useRef<Toastable>();
   const toaster = useToast();
+
+  const toast = useToasts()
+
 
   return (
     <>
@@ -92,7 +97,7 @@ const ToastUI: FC<{ className?: string }> = (prop) => {
                   </div>
 
                   <div className="w-full text-center dark:text-gray-200 mt-5">
-                    With provider
+                    With conainer
                   </div>
                   <div className="flex items-center flex-wrap gap-2 py-2">
                     <Button
@@ -139,7 +144,67 @@ const ToastUI: FC<{ className?: string }> = (prop) => {
                     >
                       error
                     </Button>
+
                   </div>
+
+
+                  <div className="w-full text-center dark:text-gray-200 mt-5">
+                    With context provider
+                  </div>
+                  <div className="flex items-center flex-wrap gap-2 py-2">
+                    <Button
+                      onClick={() =>
+                        toast.push({
+                          message: 'Hello world'
+                        })
+                      }
+                    >
+                      default
+                    </Button>
+                    <Button
+                      onClick={() =>
+                        toast.push({
+                          message: 'Hello world',
+                          variant: "info"
+                        })
+                      }
+                    >
+                      info
+                    </Button>
+                    <Button
+                      onClick={() =>
+                        toast.push({
+                          message: 'Hello world',
+                          variant: "success"
+                        })
+                      }
+                    >
+                      success
+                    </Button>
+                    <Button
+                      onClick={() =>
+                        toast.push({
+                          message: 'Hello world',
+                          variant: "warning"
+                        })
+                      }
+                    >
+                      warning
+                    </Button>
+                    <Button
+                      onClick={() =>
+                        toast.push({
+                          message: 'Hello world',
+                          variant: "error"
+                        })
+                      }
+                    >
+                      error
+                    </Button>
+
+          
+                  </div>
+                  
                 </div>
               </Tab.Content>
               <Tab.Content tab={1}>Code will be here</Tab.Content>
@@ -148,7 +213,7 @@ const ToastUI: FC<{ className?: string }> = (prop) => {
         </div>
       </div>
       <Toast refer={toastRef} />
-      <ToastProvider />
+      <ToastContainer />
     </>
   );
 };

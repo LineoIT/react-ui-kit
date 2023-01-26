@@ -9,7 +9,6 @@ const TiersUI: FC<{ className?: string }> = (prop) => {
       <div className="  py-2">
         <Tab
           onTabItemChange={(tab: number) => {
-            console.log(tab);
           }}
         >
           <div className="flex">

@@ -1,2 +1,2 @@
 
-import { Toast, useToast, Toastable, ToastProvider } from "./Toast";
+import { Toast, useToast, Toastable, ToastContainer } from "./Toast";

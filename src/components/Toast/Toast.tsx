@@ -8,7 +8,7 @@ export type Toastable = HTMLDivElement & {
   notify: (m: string, variant?: Variant) => void;
 };
 
-export const ToastProvider: React.FC<{
+export const ToastContainer: React.FC<{
   refer?: React.Ref<any>;
 }> = (prop) => {
   return (
@@ -74,6 +74,6 @@ export const Toast: React.FC<
     },
   }));
 
-  return <ToastProvider refer={modal} />;
+  return <ToastContainer refer={modal} />;
   // return <div ref={modal} className="fixed z-40 top-8 right-8" />;
 };
