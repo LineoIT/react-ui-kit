@@ -10,13 +10,15 @@ export const Dropdown: FC<{
   items: DowndownOption[]
   error?: boolean
   defaultValue?: DowndownOption
-}> = ({placeholder="", items = [], error = false, defaultValue}) => {
+  onSelectChange?: (value: DowndownOption) => void
+}> = ({placeholder="", items = [], error = false, defaultValue, onSelectChange}) => {
   const [inputValue, setInputValue] = useState("");
   const [selected, setSelected] = useState<DowndownOption>(defaultValue);
   const [open, setOpen] = useState(false);
 
 
   const defaultSpace = useMemo(() => {
+    if(onSelectChange) onSelectChange(selected)
     if (placeholder === "")
        if(selected === undefined)
          return "py-3"
