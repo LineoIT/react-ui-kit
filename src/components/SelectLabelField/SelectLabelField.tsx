@@ -20,10 +20,10 @@ export function SelectLabelField(props: PropsWithChildren & {
   const textCaption =  useMemo(() => typeof(value) === "string" ? value: value?.name, [value])
 
   return (
-    <div className="relative min-w-[180px] font-medium ">
+    <div className="relative min-w-[180px] select-none font-medium ">
       <div
         onClick={() => setOpen(!open)}
-        className={` w-full border bg-white  dark:bg-black/30 dark:text-gray-300 p-2 flex items-center justify-between rounded  
+        className={` w-full border bg-white   dark:bg-black/30 dark:text-gray-300 p-2 flex items-center justify-between rounded  
          'text-gray-500'
         ${open ? ` ring-1 border-primary ring-primary`  :  'border-gray-400'}`
        }
@@ -38,7 +38,7 @@ export function SelectLabelField(props: PropsWithChildren & {
             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
         </svg>
       </div>
-      <div   className={`absolute z-[99] text-gray-500 w-full bg-white dark:bg-gray-700 dark:text-gray-300 shadow drop-shadow-2xl  rounded  mt-1 overflow-y-auto transition-all duration-200  ${
+      <div   className={`absolute z-[99] text-gray-500 w-full bg-white dark:bg-gray-700 dark:text-gray-300 shadow drop-shadow-2xl  rounded  mt-1 overflow-y-auto transition-all duration-100  ${
           open ? "max-h-60  ring-accent ring-1" : "max-h-0"
         } `}>
           {items.map((item, i) =>  <div className="flex flex-col divide-y divide-gray-300 w-full" key={i}>

@@ -29,7 +29,7 @@ export const SelectField: FC<{
   const defaultSpace = useMemo(() => {
     if (placeholder === "")
        if(value?.toString() === "")
-         return "py-3"
+         return " py-[0.73rem]"
     return ""
   }, [value, placeholder])
 
@@ -53,10 +53,10 @@ export const SelectField: FC<{
   // }, [items, inputValue])
 
   return (
-    <div className="relative min-w-[180px] font-medium ">
+    <div className="relative min-w-[180px] font-medium">
       <div
         onClick={() => setOpen(!open)}
-        className={` w-full border ${error && 'border-red-700 text-red-700'} bg-white  dark:bg-black dark:text-gray-300 p-2 flex items-center justify-between rounded  
+        className={` w-full border select-none ${error && 'border-red-700 text-red-700'} bg-white  dark:bg-black/30 dark:text-gray-300 p-[0.4rem] flex items-center justify-between rounded  
         ${!value ? "text-gray-500" : 'text-gray-500' }
         ${open ? ` ring-1 ${error? 'border-red-700 ring-red-700' :'border-primary ring-primary'}`  :  'border-gray-400'}`
        }
@@ -67,8 +67,9 @@ export const SelectField: FC<{
         </svg>
       </div>
       <ul
-        className={`absolute z-10 text-gray-500  bg-white dark:bg-gray-700 dark:text-gray-300 shadow drop-shadow-2xl  rounded  mt-1 overflow-y-auto transition-all duration-200  ${
-          open ? "max-h-60  ring-accent ring-1" : "max-h-0"
+        className={`absolute z-10 text-gray-500 max-h-60 bg-white dark:bg-gray-700 dark:text-gray-300 shadow drop-shadow-2xl  rounded  mt-1 overflow-y-auto transition-all duration-200   ${
+          // open ? "max-h-60  ring-accent ring-1" : "max-h-0"
+          open ? "visible ring-accent ring-1" : " hidden"
         } `}
       >
         <div className="flex items-center px-2 sticky top-0 border-b dark:border-b-white-30 focus-within:border-primary bg-white dark:bg-gray-900  ">
@@ -90,7 +91,7 @@ export const SelectField: FC<{
         {items?.map((item) => (
           <li
             key={item?.title}
-            className={` text-left p-2  text-sm hover:bg-accent hover:text-white
+            className={` text-left p-2  cursor-default text-sm hover:bg-accent hover:text-white
             ${
               item?.value.toString() === value?.toString() &&
               "bg-primary text-white"
