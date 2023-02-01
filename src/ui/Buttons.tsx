@@ -1,5 +1,7 @@
 import { FC } from "react";
 import { Button } from "../components/Button/Button";
+import { Dropdown } from "../components/Dropdown";
+import { DropdownItem } from "../components/Dropdown/Dropdown";
 import { Tab } from "../components/Tab";
 import { Heading } from "./Heading";
 
@@ -27,6 +29,23 @@ const ButtonUI: FC<{ className?: string }> = (prop) => {
                 <Button variant="outlined" disabled>
                   outlined disabled
                 </Button>
+
+                <Dropdown >
+                  <Dropdown.Toggle>
+                  <Button>Dropdown</Button>
+                  </Dropdown.Toggle>
+                  <Dropdown.Wrapper className="divide-y bg-white rounded  mt-1">
+                       <DropdownItem className="p-2 hover:bg-primary hover:text-white cursor-pointer min-w-[200px]" 
+                       onClick={() => alert("item 1")}>
+                        Item 1</DropdownItem>
+                       <DropdownItem className="p-2 hover:bg-primary hover:text-white cursor-pointer min-w-[200px]" 
+                       onClick={() => alert("item 2")}>
+                        Item 2</DropdownItem>
+                       <DropdownItem className="p-2 hover:bg-primary hover:text-white cursor-pointer min-w-[200px]" 
+                       onClick={() => alert("item 3")}>
+                        Item 3</DropdownItem>
+                  </Dropdown.Wrapper>
+                </Dropdown>
               </div>
             </Tab.Content>
             <Tab.Content tab={1}>Code will be here</Tab.Content>
