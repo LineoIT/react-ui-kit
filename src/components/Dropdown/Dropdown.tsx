@@ -46,7 +46,7 @@ const Dropdown : FC<PropsWithChildren>  & {
   Item: typeof DropdownItem
  } = (props) => {
 
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   return (
    <Context.Provider value={{ open,setOpen}}>

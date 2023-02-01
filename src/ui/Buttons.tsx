@@ -34,7 +34,7 @@ const ButtonUI: FC<{ className?: string }> = (prop) => {
                   <Dropdown.Toggle>
                   <Button>Dropdown</Button>
                   </Dropdown.Toggle>
-                  <Dropdown.Wrapper className="divide-y bg-white rounded  mt-1">
+                  <Dropdown.Wrapper className="divide-y bg-white rounded shadow drop-shadow-2xl mt-1">
                        <DropdownItem className="p-2 hover:bg-primary hover:text-white cursor-pointer min-w-[200px]" 
                        onClick={() => alert("item 1")}>
                         Item 1</DropdownItem>

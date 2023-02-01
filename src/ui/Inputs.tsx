@@ -7,9 +7,12 @@ import { Dropdown } from "../components/Dropdown";
 import { Heading } from "./Heading";
 import { Tab } from "../components/Tab";
 import { TextArea } from "../components/TextArea";
+import { Select } from "../components/Select";
 
 const InputUI: FC<{ className?: string }> = (prop) => {
   const [countries, setCountries] = React.useState<{ name: string }[]>([]);
+  const [city, setCity] = React.useState("");
+  const [city2, setCity2] = React.useState("");
 
   useEffect(() => {
     fetch("https://restcountries.com/v2/all?fields=name")
@@ -46,37 +49,45 @@ const InputUI: FC<{ className?: string }> = (prop) => {
                   <TextField error placeholder="error" />
                 </div>
                 <div className="flex items-center flex-wrap gap-8">
-                  <SelectField placeholder="select country">
+                  <Select placeholder="select country">
                     {countries?.map((country, i) => (
                       <option key={i} value={country.name}>
                         {country.name}
                       </option>
                     ))}
                     )
-                  </SelectField>
+                  </Select>
 
-                  <SelectField error placeholder="select country">
+                  <Select error placeholder="select country">
                     {countries?.map((country, i) => (
                       <option key={i} value={country.name}>
                         {country.name}
                       </option>
                     ))}
                     )
-                  </SelectField>
+                  </Select>
+
+    
+
                 </div>
                 <div className="flex items-center flex-wrap gap-8 my-5">
-                  <Dropdown
+                  <SelectField
                     placeholder="select country"
+                    searchPlaceholder="search country"
                     items={countries.map((country) => {
                       return { value: country.name, title: country.name };
                     })}
+                    value={city}
+                    onChange={setCity}
                   />
-                  <Dropdown
+                  <SelectField
                     placeholder="select country"
                     error
                     items={countries.map((country) => {
                       return { value: country.name, title: country.name };
                     })}
+                    value={city2}
+                    onChange={setCity2}
                   />
                 </div>
 
