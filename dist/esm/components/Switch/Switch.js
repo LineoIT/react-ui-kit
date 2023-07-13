@@ -1,0 +1,23 @@
+import * as React from 'react';
+export const Switch = (prop) => {
+    const skin = React.useMemo(() => {
+        return prop.size === 'small' ? 'w-11 h-4 py-1 pr-1' : prop.size === 'medium' ? 'w-12 h-6 p-1' : 'w-14 h-8 p-1';
+    }, [prop.size]);
+    const indicator = React.useMemo(() => {
+        return prop.size === 'small' ? 'w-5 h-5' : prop.size === 'medium' ? 'w-4 h-4' : 'w-6 h-6';
+    }, [prop.size]);
+    const activeIndicator = React.useMemo(() => {
+        return prop.size === 'small' ? 'translate-x-6' : prop.size === 'medium' ? 'translate-x-6' : 'translate-x-6';
+    }, [prop.size]);
+    return (React.createElement("div", { className: `flex items-center  rounded-full ${skin} duration-300 cursor-pointer ${prop.value ? 'bg-primary ' : 'bg-gray-200 dark:bg-white/20'}`, onClick: () => {
+            if (prop.onChange)
+                prop.onChange(!prop.value);
+        } },
+        React.createElement("div", { className: `bg-white  dark:bg-gray-200 ${indicator} rounded-full shadow-md transform duration-300 ${prop.value ? activeIndicator : ''}` })));
+};
+export const Switch2 = (prop) => {
+    return (React.createElement("label", { htmlFor: prop.id, className: `bg-gray-200 dark:bg-white/20  relative w-14 h-8 rounded-full` },
+        React.createElement("input", Object.assign({}, prop, { type: "checkbox", className: "sr-only peer" })),
+        React.createElement("span", { className: "w-6 h-6 bg-white  dark:bg-gray-200 absolute shadow-md rounded-full left-1 top-1 peer-checked:bg-primary-dark\n     peer-checked:left-7 transition-all duration-300" })));
+};
+//# sourceMappingURL=Switch.js.map
