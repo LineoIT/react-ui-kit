@@ -14,7 +14,16 @@
         "tailwind": "npx tailwindcss -i ./src/index.css -o ./dist/index.css"
     },
     "keywords": [],
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/LineoIT/react-ui-kit.git"
+    },
     "author": "Claver Amon",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/LineoIT/react-ui-kit/issues"
+    },
+    "homepage": "https://github.com/LineoIT/react-ui-kit#readme",
     "devDependencies": {
         "@types/node": "^20.4.2",
         "@types/react": "^18.2.14",
