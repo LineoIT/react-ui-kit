@@ -1,18 +1,11 @@
-import React from "react";
+import React from 'react';
 
-export const Radio: React.FC<
-  React.DetailedHTMLProps<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
-  > & {
-   
-  }
-> = (props) => {
-  return (
-    <label className="cursor-pointer ">
-      <input {...props} type="radio" className="peer sr-only" />
-      <div
-        className="rounded-full border border-gray-400 bg-white dark:bg-transparent
+export const Radio: React.FC<React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {}> = (props) => {
+    return (
+        <label className="cursor-pointer ">
+            <input {...props} type="radio" className="peer sr-only" />
+            <div
+                className="rounded-full border border-gray-400 bg-white dark:bg-transparent
          text-white dark:text-transparent ring-2 ring-transparent transition-all hover:shadow 
       peer-checked:text-primary-dark peer-checked:ring-accent  peer-checked:border-transparent
       dark:peer-checked:text-accent  
@@ -21,17 +14,13 @@ export const Radio: React.FC<
       peer-disabled:text-slate-100 dark:peer-disabled:text-transparent
       peer-disabled:cursor-not-allowed
      "
-      >
-        <div className="flex items-center justify-between">
-            <svg
-              style={{ margin: "2px", width: "14px", height: "14px" }}
-              viewBox="0 0 24 24"
             >
-              <circle cx="12" cy="12" r="12" fill="currentColor" />
-            </svg>
-         
-        </div>
-      </div>
-    </label>
-  );
+                <div className="flex items-center justify-between">
+                    <svg style={{ margin: '2px', width: '14px', height: '14px' }} viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="12" fill="currentColor" />
+                    </svg>
+                </div>
+            </div>
+        </label>
+    );
 };

@@ -1,1 +1,1 @@
-export * from "./SelectLabelField";
+export * from './SelectLabelField';

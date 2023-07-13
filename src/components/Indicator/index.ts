@@ -1,1 +1,1 @@
-export * from "./RippleIndicator";
+export * from './RippleIndicator';

@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --color-primary: rgb(34, 98, 198);
+        --color-primary-dark: rgb(13, 74, 172);
+        --color-accent: rgb(83, 128, 199);
+
+        --x-primary: 34, 98, 198;
+        --x-primary-dark: 13, 74, 172;
+        --x-accent: 83, 128, 199;
+    }
+}

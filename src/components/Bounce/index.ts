@@ -1,1 +1,1 @@
-export { Bounce } from "./Bounce";
+export * from './Bounce';
