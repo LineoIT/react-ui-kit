@@ -41,4 +41,5 @@ __exportStar(require("./TextArea"), exports);
 __exportStar(require("./TextField"), exports);
 __exportStar(require("./Timeline"), exports);
 __exportStar(require("./Toast"), exports);
+__exportStar(require("./Drawer"), exports);
 //# sourceMappingURL=index.js.map

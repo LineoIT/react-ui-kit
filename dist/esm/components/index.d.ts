@@ -25,3 +25,4 @@ export * from './TextArea';
 export * from './TextField';
 export * from './Timeline';
 export * from './Toast';
+export * from './Drawer';
