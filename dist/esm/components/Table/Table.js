@@ -19,7 +19,7 @@ export const TableRow = (props) => {
 export const TableCell = (prop) => {
     const { className = 'text-left' } = prop;
     const css = useMemo(() => {
-        return prop.type === 'th' ? ' md:text-[14px] text-[16px] font-[400] text-black/90 dark:text-white/50' : ' md:text-[13px] text-[14px] text-black/60 dark:text-white/50';
+        return prop.type === 'th' ? ' md:text-[14px] text-[16px] text-black/50 dark:text-white/50' : ' md:text-[13px] text-[14px] text-black/70 dark:text-white/60';
     }, [prop.type]);
     return (React.createElement("td", Object.assign({}, prop, { className: ` ${css} p-2  border-collapse border-spacing-0 
     leading-[20px] indent-0 

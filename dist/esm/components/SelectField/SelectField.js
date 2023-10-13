@@ -32,9 +32,9 @@ export const SelectField = ({ placeholder = '', items = [], error = false, searc
             React.createElement("span", { className: `${defaultSpace}` }, normalizedTitle),
             React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", fill: "none", viewBox: "0 0 24 24", strokeWidth: 1.5, stroke: "currentColor", className: `w-[14px] h-[14px] ${open && 'rotate-180'}` },
                 React.createElement("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M19.5 8.25l-7.5 7.5-7.5-7.5" }))),
-        React.createElement("ul", { className: `absolute z-10 text-gray-500 max-h-60 bg-white dark:bg-gray-700 dark:text-gray-300 shadow drop-shadow-2xl  rounded  mt-1 overflow-y-auto transition-all duration-200   ${
+        React.createElement("ul", { className: `absolute z-10 text-gray-500 max-h-[600px] bg-white dark:bg-slate-800 dark:text-gray-300 shadow drop-shadow-2xl  rounded  mt-1 overflow-y-auto transition-all duration-200   ${
             // open ? "max-h-60  ring-accent ring-1" : "max-h-0"
-            open ? 'visible ring-accent ring-1' : ' hidden'} ` },
+            open ? 'visible' : ' hidden'} ` },
             React.createElement("div", { className: "flex items-center px-2 sticky top-0 border-b dark:border-b-white/30 focus-within:border-primary bg-white dark:bg-gray-900  " },
                 React.createElement("svg", { viewBox: "0 0 20 20", fill: "currentColor", className: "w-4 h-4  text-gray-500 dark:text-gray-400" },
                     React.createElement("path", { fillRule: "evenodd", d: "M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z", clipRule: "evenodd" })),

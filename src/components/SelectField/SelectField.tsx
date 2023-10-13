@@ -55,9 +55,9 @@ export const SelectField: FC<{
                 </svg>
             </div>
             <ul
-                className={`absolute z-10 text-gray-500 max-h-60 bg-white dark:bg-gray-700 dark:text-gray-300 shadow drop-shadow-2xl  rounded  mt-1 overflow-y-auto transition-all duration-200   ${
+                className={`absolute z-10 text-gray-500 max-h-[600px] bg-white dark:bg-slate-800 dark:text-gray-300 shadow drop-shadow-2xl  rounded  mt-1 overflow-y-auto transition-all duration-200   ${
                     // open ? "max-h-60  ring-accent ring-1" : "max-h-0"
-                    open ? 'visible ring-accent ring-1' : ' hidden'
+                    open ? 'visible' : ' hidden'
                 } `}
             >
                 <div className="flex items-center px-2 sticky top-0 border-b dark:border-b-white/30 focus-within:border-primary bg-white dark:bg-gray-900  ">
