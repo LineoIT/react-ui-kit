@@ -1,4 +1,27 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __rest = (this && this.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
@@ -10,12 +33,9 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DropButton = void 0;
-const react_1 = __importDefault(require("react"));
+exports.Dropper = exports.DropButton = void 0;
+const react_1 = __importStar(require("react"));
 const react_2 = require("react");
 const Item = (0, react_2.memo)((prop) => {
     const { children } = prop, rest = __rest(prop, ["children"]);
@@ -54,4 +74,26 @@ const DropButton = ({ items = [], onSelect, className = 'py-2 px-4 hover:bg-blac
             filtered.map((item, i) => (react_1.default.createElement(Item, { key: i, onClick: () => handleClick(i) }, item)))))));
 };
 exports.DropButton = DropButton;
+const Dropper = (prop) => {
+    const { button, dropClassName = 'block shadow absolute z-50  overflow-y-auto bg-white dark:bg-slate-900 border-[1px] border-black/[3%] select-none', children, active, setActive } = prop, rest = __rest(prop, ["button", "dropClassName", "children", "active", "setActive"]);
+    const divRef = (0, react_1.useRef)(null);
+    const toogle = () => {
+        setActive(!active);
+    };
+    (0, react_1.useEffect)(() => {
+        function handleClickOutside(event) {
+            if (divRef.current && !divRef.current.contains(event.target)) {
+                setActive(false);
+            }
+        }
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+    return (react_1.default.createElement("div", { className: "block relative", ref: divRef },
+        react_1.default.createElement("div", Object.assign({}, rest, { onClick: toogle }), button),
+        active && react_1.default.createElement("div", { className: dropClassName }, children)));
+};
+exports.Dropper = Dropper;
 //# sourceMappingURL=DropdownButton.js.map

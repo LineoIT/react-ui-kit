@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode, useEffect, useRef } from 'react';
 import { useState, memo, useMemo } from 'react';
 
 const Item = memo((prop: React.HTMLAttributes<HTMLDivElement>) => {
@@ -74,6 +74,44 @@ export const DropButton = ({ items = [], onSelect, className = 'py-2 px-4 hover:
                     ))}
                 </div>
             )}
+        </div>
+    );
+};
+
+export const Dropper = (
+    prop: React.HTMLAttributes<HTMLDivElement> & {
+        button: ReactNode;
+        dropClassName?: string;
+        active: boolean;
+        setActive: React.Dispatch<React.SetStateAction<boolean>>;
+    }
+) => {
+    const { button, dropClassName = 'block shadow absolute z-50  overflow-y-auto bg-white dark:bg-slate-900 border-[1px] border-black/[3%] select-none', children, active, setActive, ...rest } = prop;
+    const divRef = useRef<HTMLDivElement>(null);
+
+    const toogle = () => {
+        setActive(!active);
+    };
+
+    useEffect(() => {
+        function handleClickOutside(event: MouseEvent) {
+            if (divRef.current && !divRef.current.contains(event.target as Node)) {
+                setActive(false);
+            }
+        }
+        document.addEventListener('mousedown', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
+    return (
+        <div className="block relative" ref={divRef}>
+            <div {...rest} onClick={toogle}>
+                {button}
+            </div>
+            {active && <div className={dropClassName}>{children}</div>}
         </div>
     );
 };

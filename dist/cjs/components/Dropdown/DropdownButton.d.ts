@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 export type DropButtonProps = {
     items?: string[];
     onSelect?: (item: string) => void;
@@ -7,3 +7,9 @@ export type DropButtonProps = {
     searchable?: boolean;
 };
 export declare const DropButton: ({ items, onSelect, className, dropClassName, searchable }: DropButtonProps) => React.JSX.Element;
+export declare const Dropper: (prop: React.HTMLAttributes<HTMLDivElement> & {
+    button: ReactNode;
+    dropClassName?: string;
+    active: boolean;
+    setActive: React.Dispatch<React.SetStateAction<boolean>>;
+}) => React.JSX.Element;

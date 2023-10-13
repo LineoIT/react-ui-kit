@@ -9,7 +9,7 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useState, memo, useMemo } from 'react';
 const Item = memo((prop) => {
     const { children } = prop, rest = __rest(prop, ["children"]);
@@ -46,5 +46,26 @@ export const DropButton = ({ items = [], onSelect, className = 'py-2 px-4 hover:
                 search.length === 0 && (React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", className: "h-4 fill-black/50 dark:fill-white/50 absolute right-1 top-1/2  -translate-y-1/2" },
                     React.createElement("path", { d: "M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" }))))),
             filtered.map((item, i) => (React.createElement(Item, { key: i, onClick: () => handleClick(i) }, item)))))));
+};
+export const Dropper = (prop) => {
+    const { button, dropClassName = 'block shadow absolute z-50  overflow-y-auto bg-white dark:bg-slate-900 border-[1px] border-black/[3%] select-none', children, active, setActive } = prop, rest = __rest(prop, ["button", "dropClassName", "children", "active", "setActive"]);
+    const divRef = useRef(null);
+    const toogle = () => {
+        setActive(!active);
+    };
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (divRef.current && !divRef.current.contains(event.target)) {
+                setActive(false);
+            }
+        }
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+    return (React.createElement("div", { className: "block relative", ref: divRef },
+        React.createElement("div", Object.assign({}, rest, { onClick: toogle }), button),
+        active && React.createElement("div", { className: dropClassName }, children)));
 };
 //# sourceMappingURL=DropdownButton.js.map
