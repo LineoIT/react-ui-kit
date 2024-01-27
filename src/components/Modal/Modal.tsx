@@ -13,10 +13,11 @@ type ModalProps = React.PropsWithChildren<{
     name?: string;
     setVisible?: (visible: boolean) => void;
     className?: string;
+    overlayClassName?: string;
 }>;
 
 export const BaseModal: React.FC<ModalProps> = (props) => {
-    const { children, visible, setVisible, name, dismissible = true, zIndex = 20, className = '', ...rest } = props;
+    const { children, visible, setVisible, name, dismissible = true, zIndex = 20, className = '', overlayClassName, ...rest } = props;
 
     const modal = React.useRef(null);
 
@@ -30,17 +31,16 @@ export const BaseModal: React.FC<ModalProps> = (props) => {
     return (
         <div
             {...rest}
-            className={`fixed top-0 right-0 bottom-0 left-0 flex items-center transition-opacity-visibility ease-in-out duration-300  outline-0 bg-black/60
-       ${visible ? ' visible opacity-100' : 'invisible opacity-0'}`}
+            className={`fixed top-0 right-0 bottom-0 left-0 flex items-center transition-opacity-visibility ease-in-out duration-300  outline-0 bg-black/60 
+       ${visible ? ' visible opacity-100' : 'invisible opacity-0'} ${overlayClassName}`}
             ref={modal}
             id={name}
             onClick={handleDismiss}
             style={{ zIndex: zIndex }}
         >
             <div
-                className={`relative m-auto transition-opacity-visibility-transform ease-in-out duration-300 flex flex-col outline-none ${
-                    visible ? 'visible translate-y-0 scale-100 opacity-100' : 'invisible opacity-0 scale-50 '
-                } ${className}`}
+                className={`relative m-auto transition-opacity-visibility-transform ease-in-out duration-300 flex flex-col outline-none ${visible ? 'visible translate-y-0 scale-100 opacity-100' : 'invisible opacity-0 scale-50 '
+                    } ${className}`}
             >
                 {children}
             </div>
