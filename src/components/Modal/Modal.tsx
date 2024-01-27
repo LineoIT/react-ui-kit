@@ -39,8 +39,9 @@ export const BaseModal: React.FC<ModalProps> = (props) => {
             style={{ zIndex: zIndex }}
         >
             <div
-                className={`relative m-auto transition-opacity-visibility-transform ease-in-out duration-300 flex flex-col outline-none ${visible ? 'visible translate-y-0 scale-100 opacity-100' : 'invisible opacity-0 scale-50 '
-                    } ${className}`}
+                className={`relative m-auto transition-opacity-visibility-transform ease-in-out duration-300 flex flex-col outline-none ${
+                    visible ? 'visible translate-y-0 scale-100 opacity-100' : 'invisible opacity-0 scale-50 '
+                } ${className}`}
             >
                 {children}
             </div>

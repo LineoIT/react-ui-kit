@@ -12,7 +12,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 import React from 'react';
 import ReactDom from 'react-dom';
 export const BaseModal = (props) => {
-    const { children, visible, setVisible, name, dismissible = true, zIndex = 20, className = '' } = props, rest = __rest(props, ["children", "visible", "setVisible", "name", "dismissible", "zIndex", "className"]);
+    const { children, visible, setVisible, name, dismissible = true, zIndex = 20, className = '', overlayClassName } = props, rest = __rest(props, ["children", "visible", "setVisible", "name", "dismissible", "zIndex", "className", "overlayClassName"]);
     const modal = React.useRef(null);
     function handleDismiss(e) {
         const target = e.target;
@@ -21,8 +21,8 @@ export const BaseModal = (props) => {
                 setVisible(false);
         }
     }
-    return (React.createElement("div", Object.assign({}, rest, { className: `fixed top-0 right-0 bottom-0 left-0 flex items-center transition-opacity-visibility ease-in-out duration-300  outline-0 bg-black/60
-       ${visible ? ' visible opacity-100' : 'invisible opacity-0'}`, ref: modal, id: name, onClick: handleDismiss, style: { zIndex: zIndex } }),
+    return (React.createElement("div", Object.assign({}, rest, { className: `fixed top-0 right-0 bottom-0 left-0 flex items-center transition-opacity-visibility ease-in-out duration-300  outline-0 bg-black/60 
+       ${visible ? ' visible opacity-100' : 'invisible opacity-0'} ${overlayClassName}`, ref: modal, id: name, onClick: handleDismiss, style: { zIndex: zIndex } }),
         React.createElement("div", { className: `relative m-auto transition-opacity-visibility-transform ease-in-out duration-300 flex flex-col outline-none ${visible ? 'visible translate-y-0 scale-100 opacity-100' : 'invisible opacity-0 scale-50 '} ${className}` }, children)));
 };
 export const Modal = (props) => {

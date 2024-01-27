@@ -35,7 +35,7 @@ export const FloatingLoader = ({ refer, className = 'bottom-[10px] right-[10px]'
         >
             <div className={`${_state === 'error' && 'text-rose-500'}`}>{_content}</div>
             <div className="w-[10px]" />
-            {_state == 'loading' && <Spinner size="20px" />}
+            {_state == 'loading' && <Spinner />}
             {_state == 'error' && (
                 <div className="w-[20px] h-[20px] rounded-full bg-rose-500 text-white flex items-center justify-center">
                     <XMarkIcon />

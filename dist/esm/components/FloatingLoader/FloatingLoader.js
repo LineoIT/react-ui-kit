@@ -23,7 +23,7 @@ export const FloatingLoader = ({ refer, className = 'bottom-[10px] right-[10px]'
     ${_state !== 'none' ? 'opacity-100' : 'opacity-0'}` },
         React.createElement("div", { className: `${_state === 'error' && 'text-rose-500'}` }, _content),
         React.createElement("div", { className: "w-[10px]" }),
-        _state == 'loading' && React.createElement(Spinner, { size: "20px" }),
+        _state == 'loading' && React.createElement(Spinner, null),
         _state == 'error' && (React.createElement("div", { className: "w-[20px] h-[20px] rounded-full bg-rose-500 text-white flex items-center justify-center" },
             React.createElement(XMarkIcon, null))),
         _state == 'success' && (React.createElement("div", { className: "w-[20px] h-[20px] rounded-full bg-green-500 text-white flex items-center justify-center" },

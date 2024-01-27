@@ -1,7 +1,2 @@
-import React, { FC } from 'react';
-export declare const Spinner: FC<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
-    className?: string;
-    variant?: 'default' | 'inverted';
-    size?: string;
-    stroke?: string;
-}>;
+import React from 'react';
+export declare const Spinner: (prop: React.SVGProps<SVGSVGElement>) => React.JSX.Element;
