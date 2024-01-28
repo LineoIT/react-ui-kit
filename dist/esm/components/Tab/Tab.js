@@ -1,31 +1,37 @@
-import React from 'react';
-const TabContext = React.createContext({
-    currentTab: 0
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+import React, { createContext, useContext } from 'react';
+const TabContext = createContext({
+    value: 0
 });
-const TabHeader = (props) => {
-    const { children, tab = 0, className = 'cursor-pointer py-2 px-7 first:border-l border-t last:border-r last:rounded-tr first:rounded-tl  border-primary', activeClass = 'bg-white dark:bg-gray-600 text-primary dark:text-accent border-b-0 ', slaveClass = 'text-primary dark:text-gray-400' } = props;
-    const { currentTab, setCurrentTab, onTabItemChange } = React.useContext(TabContext);
-    return (React.createElement("div", { className: `${className} ${tab === currentTab ? activeClass : slaveClass}`, onClick: () => {
-            if (setCurrentTab)
-                setCurrentTab(tab);
-            if (onTabItemChange)
-                onTabItemChange(tab);
-        } }, children));
+const Item = (prop) => {
+    const { tab = 0, className = 'py-2 px-3', children } = prop, rest = __rest(prop, ["tab", "className", "children"]);
+    const { value, onChange, variant = 'tab' } = useContext(TabContext);
+    const handleClick = () => {
+        if (onChange)
+            onChange(tab);
+    };
+    const _activeSwitchClass = tab === value ? 'cursor-default bg-white dark:bg-slate-900/50 dark:text-sky-500 ' : 'cursor-pointer hover:bg-white/30 hover:dark:bg-slate-900/50 dark:text-white/30';
+    const _activeTabClass = tab === value ? 'cursor-default dark:text-sky-500 text-primary border-b-2 border-primary dark:border-sky-500' : 'cursor-pointer';
+    return (React.createElement("div", Object.assign({ onClick: handleClick }, rest, { className: ` ${variant === 'switch' && 'text-black/60 rounded-md'} 
+    ${variant === 'switch' ? _activeSwitchClass : _activeTabClass}
+  ${className}` }), children));
 };
-const TabItem = (props) => {
-    const { children, tab = 0, className = 'py-4 bg-white border-x border-b border-primary rounded-br rounded-bl dark:bg-gray-600 w-full min-h-[100px] ' } = props;
-    const { currentTab } = React.useContext(TabContext);
-    if (tab === currentTab)
-        return (React.createElement("div", Object.assign({}, props, { className: className }), children));
-    return null;
+const Tab = ({ children, value, onChange, className, variant = 'tab' }) => {
+    return (React.createElement(TabContext.Provider, { value: { value, onChange, variant } },
+        React.createElement("div", { className: `inline-flex gap-1  
+              ${variant === 'switch' ? 'rounded bg-black/5 dark:bg-white/5 p-1' : 'dark:bg-white/5   w-full border-b  border-black/[0.03]  dark:border-white/10'} 
+              ${className}` }, children)));
 };
-const Tab = (props) => {
-    const { children, onTabItemChange, className = 'flex flex-col' } = props;
-    const [currentTab, setCurrentTab] = React.useState(0);
-    return (React.createElement(TabContext.Provider, { value: { currentTab, setCurrentTab, onTabItemChange } },
-        React.createElement("div", { className: className }, children)));
-};
-Tab.Header = TabHeader;
-Tab.Content = TabItem;
+Tab.Item = Item;
 export { Tab };
 //# sourceMappingURL=Tab.js.map

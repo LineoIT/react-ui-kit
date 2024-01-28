@@ -26,7 +26,7 @@ export function SelectLabelField(
         <div className="relative min-w-[180px] select-none font-medium ">
             <div
                 onClick={() => setOpen(!open)}
-                className={` w-full border bg-white   dark:bg-black/30 dark:text-gray-300 p-2 flex items-center justify-between rounded  
+                className={` w-full border  dark:text-gray-300 p-2 flex items-center justify-between rounded  
          'text-gray-500'
         ${open ? ` ring-1 border-primary ring-primary` : 'border-gray-400 dark:border-gray-500'}`}
             >

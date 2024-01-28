@@ -4,7 +4,7 @@ export * from './Bounce';
 export * from './Box';
 export * from './Button';
 export * from './CheckBox';
-export * from './DatePicker';
+export * from './DateField';
 export * from './Dialog';
 export * from './Dropdown';
 export * from './FloatingLoader';

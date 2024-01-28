@@ -20,7 +20,7 @@ __exportStar(require("./Bounce"), exports);
 __exportStar(require("./Box"), exports);
 __exportStar(require("./Button"), exports);
 __exportStar(require("./CheckBox"), exports);
-__exportStar(require("./DatePicker"), exports);
+__exportStar(require("./DateField"), exports);
 __exportStar(require("./Dialog"), exports);
 __exportStar(require("./Dropdown"), exports);
 __exportStar(require("./FloatingLoader"), exports);

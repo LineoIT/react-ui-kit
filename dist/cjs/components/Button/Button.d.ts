@@ -1,22 +1,23 @@
-import * as React from 'react';
-type Variant = 'inverted' | 'default' | 'outlined';
-type Size = 'small' | 'medium' | 'large' | 'none';
-type Shape = 'flated' | 'rounded' | 'semi-rounded';
-type Color = 'primary' | 'success' | 'error' | 'secondary';
-export declare const Button: React.FC<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> & {
-    variant?: Variant;
-    size?: Size;
-    shape?: Shape;
-    className?: string;
+import React from 'react';
+type Color = 'primary' | 'danger' | 'success';
+type Variant = 'outlined' | 'inverted' | 'default';
+type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     color?: Color;
-}>;
-export declare const LinkButton: React.FC<React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> & {
     variant?: Variant;
-    className?: string;
-    onClick?: () => void;
-}>;
-export declare const IconButton: React.FC<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> & {
-    variant?: 'inverted' | 'contained';
+    isLoading?: boolean;
+    loadingText?: string;
+};
+export declare const Button: ({ children, className, color, variant, isLoading, loadingText, ...rest }: Props) => React.JSX.Element;
+export declare const TextButton: ({ children, color, isLoading, loadingText, className, ...props }: Props) => React.JSX.Element;
+export declare const LinkButton: ({ children, className, color, variant, ...rest }: React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+    color?: Color | undefined;
+    variant?: Variant | undefined;
+}) => React.JSX.Element;
+export declare const LinkTextButton: ({ children, className, color, ...rest }: React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+    color?: Color | undefined;
+}) => React.JSX.Element;
+export declare const IconButton: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement> & {
+    variant?: 'inverted' | 'default' | 'contained' | 'filled';
     shape?: 'square' | 'rounded';
 }>;
 export {};

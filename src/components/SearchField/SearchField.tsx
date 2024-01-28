@@ -9,10 +9,10 @@ export const SearchField: React.FC<Prop> = (props) => {
     const { variant = 'default', ...rest } = props;
     return (
         <label
-            className={`flex items-center rounded ${variant === 'inverted' ? 'bg-gray-50' : 'bg-white'}
+            className={`flex items-center rounded 
     text-gray-400 dark:text-gray-200 border dark:border-gray-500 border-gray-400 
      focus-within:text-gray-700 focus-within:ring-primary focus-within:ring-1 focus-within:border-primary
-      dark:bg-black dark:bg-opacity-30 dark:focus-within:bg-opacity-10
+     dark:focus-within:bg-white/10
      dark:focus-within:text-gray-200 dark:placeholder-gray-500  dark:placeholder-opacity-100`}
         >
             <svg viewBox="0 0 20 20" fill="currentColor" className="ml-2 w-4 h-4">

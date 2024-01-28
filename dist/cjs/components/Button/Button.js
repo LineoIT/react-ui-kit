@@ -1,27 +1,4 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __rest = (this && this.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
@@ -33,55 +10,81 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.IconButton = exports.LinkButton = exports.Button = void 0;
-const React = __importStar(require("react"));
-const Button = (props) => {
-    const { variant = 'default', children, size = 'medium', shape = 'rounded', className } = props;
-    const borderRadius = React.useMemo(() => {
-        if (shape === 'semi-rounded')
-            return 'rounded';
-        if (shape === 'rounded')
-            return 'rounded-full';
-        return '';
-    }, [shape]);
-    let _className = `px-4 ${size === 'small' ? 'py-1' : size === 'large' ? 'py-3' : size === 'none' ? '' : 'py-2'}
- ${borderRadius} text-sm font-medium transition-all ease-in-out
- ${variant === 'outlined'
-        ? 'border border-primary text-primary dark:text-gray-200  bg-transparent hover:bg-primary disabled:border-gray-200 disabled:text-gray-300 hover:text-white disabled:hover:bg-transparent dark:hover:bg-black/10 dark:hover:text-gray-200 dark:disabled:border-gray-500 dark:disabled:text-gray-400 dark:disabled:hover:bg-transparent'
-        : ''}
- ${variant === 'default'
-        ? ` text-white dark:text-gray-200 dark:hover:text-gray-200  dark:disabled:text-gray-400
- bg-primary  dark:bg-primary disabled:bg-gray-200 hover:bg-primary-dark  dark:disabled:bg-gray-500   `
-        : ''}`;
-    if (props.className)
-        _className = _className + ' ' + className;
-    return (React.createElement(React.Fragment, null,
-        React.createElement("button", Object.assign({}, props, { className: _className }), children)));
+exports.IconButton = exports.LinkTextButton = exports.LinkButton = exports.TextButton = exports.Button = void 0;
+const react_1 = __importDefault(require("react"));
+const Spinner_1 = require("../Spinner");
+const _colors = (color, variant) => {
+    const _class = color === 'danger'
+        ? `${variant === 'default'
+            ? 'text-white bg-rose-500 hover:bg-rose-600 dark:text-rose-300 dark:bg-rose-700 dark:hover:bg-rose-800'
+            : 'text-rose-600 bg-rose-50 hover:bg-rose-100 dark:text-rose-300 dark:bg-slate-700 dark:hover:bg-black/20'}
+  ${variant === 'outlined' ? ' border-rose-400 dark:border-rose-300' : 'border-transparent'}`
+        : color === 'success'
+            ? `${variant === 'default'
+                ? 'text-white bg-green-500 hover:bg-green-600 dark:text-green-300 dark:bg-green-700 dark:hover:bg-green-800'
+                : 'text-green-600 bg-green-50 hover:bg-green-100 dark:text-green-300 dark:bg-slate-700 dark:hover:bg-black/20'} 
+  ${variant === 'outlined' ? ' border-green-500 dark:border-green-400' : 'border-transparent'}`
+            : `${variant === 'default'
+                ? 'text-white bg-primary hover:bg-primary-dark dark:text-sky-300 dark:bg-sky-700 dark:hover:bg-sky-800'
+                : 'text-primary bg-sky-100/70 hover:bg-sky-100 dark:text-sky-300 dark:bg-slate-700 dark:hover:bg-black/20 '}
+  ${variant === 'outlined' ? ' border-primary dark:border-sky-400' : 'border-transparent'}`;
+    return _class;
+};
+const _colorsText = (color) => {
+    const _class = color === 'danger'
+        ? 'text-rose-600 dark:text-red-400 hover:bg-rose-50 hover:dark:bg-white/5 hover:dark:text-red-300'
+        : color === 'success'
+            ? 'text-green-600 dark:text-green-400 hover:bg-green-50 hover:dark:bg-white/5 hover:dark:text-green-300'
+            : 'text-primary hover:bg-sky-50 dark:text-sky-300 dark:hover:bg-slate-600';
+    return _class;
+};
+const Button = (_a) => {
+    var { children, className, color = 'primary', variant = 'default', isLoading = false, loadingText = '' } = _a, rest = __rest(_a, ["children", "className", "color", "variant", "isLoading", "loadingText"]);
+    const _class = _colors(color, variant);
+    return (react_1.default.createElement("button", Object.assign({}, rest, { className: `flex items-center justify-center cursor-pointer transition-all px-4 py-2 rounded border ${_class} ${className}` }), isLoading ? (react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement("span", { className: "pr-1" }, loadingText),
+        react_1.default.createElement(Spinner_1.Spinner, null))) : (children)));
 };
 exports.Button = Button;
+const TextButton = (_a) => {
+    var { children, color = 'primary', isLoading = false, loadingText = 'Wait', className } = _a, props = __rest(_a, ["children", "color", "isLoading", "loadingText", "className"]);
+    const _class = _colorsText(color);
+    return (react_1.default.createElement("button", Object.assign({ className: `flex items-center  justify-center py-1 px-3 transition-all ${_class} ${className}` }, props), isLoading ? (react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement("span", { className: "pr-1" }, loadingText),
+        react_1.default.createElement(Spinner_1.Spinner, null))) : (children)));
+};
+exports.TextButton = TextButton;
 const LinkButton = (_a) => {
-    var { variant = 'default', children, className } = _a, rest = __rest(_a, ["variant", "children", "className"]);
-    let _className = variant === 'inverted' ? 'text-skin-inverted bg-skin-button-accent hover:bg-skin-button-accent-hover  ' : 'text-skin-base bg-skin-button-muted bg-opacity-60 hover:bg-opacity-70';
-    if (className)
-        _className = _className + ' ' + className;
-    return (React.createElement(React.Fragment, null,
-        React.createElement("a", Object.assign({}, rest, { className: `flex items-center justify-center px-4 py-3 border border-transparent 
-            text-base font-medium rounded-md shadow-sm sm:px-8 ` + _className }), children)));
+    var { children, className, color = 'primary', variant = 'default' } = _a, rest = __rest(_a, ["children", "className", "color", "variant"]);
+    const _class = _colors(color, variant);
+    return (react_1.default.createElement("a", Object.assign({}, rest, { className: `flex items-center justify-center cursor-pointer  transition-all px-4 py-2 rounded border ${_class} ${className}` }), children));
 };
 exports.LinkButton = LinkButton;
+const LinkTextButton = (_a) => {
+    var { children, className, color = 'primary' } = _a, rest = __rest(_a, ["children", "className", "color"]);
+    const _class = _colorsText(color);
+    return (react_1.default.createElement("a", Object.assign({}, rest, { className: `flex items-center justify-center cursor-pointer  transition-all px-3 py-1 rounded  ${_class} ${className}` }), children));
+};
+exports.LinkTextButton = LinkTextButton;
 const IconButton = (props) => {
-    const { className = 'w-10 h-10', children, variant = 'inverted', shape = 'rounded' } = props;
+    const { className = 'w-10 h-10', children, variant = 'default', shape = 'rounded' } = props;
     let _className = `ring-0 outline-none flex items-center justify-center 
     cursor-pointer transition-all duration-300 ease-in-out 
     ${shape === 'rounded' ? 'rounded-full' : 'rounded'}
-    
-  ${variant === 'inverted'
-        ? 'text-white bg-white/10 hover:bg-white/20 '
-        : 'bg-white  text-gray-600 dark:text-white hover:text-primary dark:bg-white/30 hover:bg-white/60  dark:hover:bg-white/10 dark:hover:text-white'}`;
+    ${variant === 'contained'
+        ? 'bg-white hover:text-primary text-black  dark:bg-white/10 dark:hover:bg-white/20 dark:text-white'
+        : variant === 'inverted'
+            ? 'bg-black/10 hover:bg-black/20 text-black  dark:bg-white/10 dark:hover:bg-white/20 dark:text-white'
+            : variant === 'filled'
+                ? 'bg-white/10 hover:bg-white/20 text-white '
+                : 'text-black dark:text-white hover:bg-black/10 hover:dark:bg-white/10 '}`;
     if (className)
         _className = _className + ' ' + className;
-    return (React.createElement("button", Object.assign({}, props, { className: _className }), children));
+    return (react_1.default.createElement("button", Object.assign({}, props, { className: _className }), children));
 };
 exports.IconButton = IconButton;
 //# sourceMappingURL=Button.js.map

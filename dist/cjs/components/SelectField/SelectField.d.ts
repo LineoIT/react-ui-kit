@@ -3,7 +3,7 @@ export type SelectFieldOption = {
     value: string;
     title: string;
 } | undefined;
-export declare const SelectField: FC<{
+type SelectFieldProp = {
     placeholder?: string;
     items: SelectFieldOption[];
     error?: boolean;
@@ -12,4 +12,8 @@ export declare const SelectField: FC<{
     searchPlaceholder?: string;
     onChange?: (value: any) => void;
     isReset?: boolean;
-}>;
+    dropClass?: string;
+    drop?: 'top' | 'bottom' | 'top-right' | 'bottom-right';
+};
+export declare const SelectField: FC<SelectFieldProp>;
+export {};

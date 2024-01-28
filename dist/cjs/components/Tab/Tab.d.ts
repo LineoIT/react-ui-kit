@@ -1,17 +1,17 @@
-import React, { FC } from 'react';
-type BaseProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
-declare const TabHeader: FC<BaseProps & {
+import React, { FC, ReactNode } from 'react';
+type Props = {
+    value: number;
+    onChange?: (index: number) => void;
+    variant?: 'tab' | 'switch';
+};
+declare const Item: (prop: React.PropsWithChildren<{
     tab: number;
-    activeClass?: string;
-    slaveClass?: string;
-}>;
-declare const TabItem: FC<BaseProps & {
-    tab: number;
-}>;
-declare const Tab: FC<BaseProps & {
-    onTabItemChange?: (tab: number) => void;
+    className?: string;
+}>) => React.JSX.Element;
+declare const Tab: FC<Props & {
+    children?: ReactNode;
+    className?: string;
 }> & {
-    Header: typeof TabHeader;
-    Content: typeof TabItem;
+    Item: typeof Item;
 };
 export { Tab };

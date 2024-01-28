@@ -4,7 +4,7 @@ export function SelectLabelField(props) {
     const [open, setOpen] = useState(false);
     const textCaption = useMemo(() => (typeof value === 'string' ? value : value === null || value === void 0 ? void 0 : value.name), [value]);
     return (React.createElement("div", { className: "relative min-w-[180px] select-none font-medium " },
-        React.createElement("div", { onClick: () => setOpen(!open), className: ` w-full border bg-white   dark:bg-black/30 dark:text-gray-300 p-2 flex items-center justify-between rounded  
+        React.createElement("div", { onClick: () => setOpen(!open), className: ` w-full border  dark:text-gray-300 p-2 flex items-center justify-between rounded  
          'text-gray-500'
         ${open ? ` ring-1 border-primary ring-primary` : 'border-gray-400 dark:border-gray-500'}` },
             React.createElement("div", { className: "flex items-center flex-1" },

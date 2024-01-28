@@ -1,79 +1,59 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode, createContext, useContext } from 'react';
 
-const TabContext = React.createContext<{
-    currentTab: number;
-    setCurrentTab?: (tab: number) => void;
-    onTabItemChange?: (tab: number) => void;
-}>({
-    currentTab: 0
+type Props = {
+    value: number;
+    onChange?: (index: number) => void;
+    variant?: 'tab' | 'switch';
+};
+
+const TabContext = createContext<Props>({
+    value: 0
 });
 
-type BaseProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+const Item = (prop: React.PropsWithChildren<{ tab: number; className?: string }>) => {
+    const { tab = 0, className = 'py-2 px-3', children, ...rest } = prop;
+    const { value, onChange, variant = 'tab' } = useContext(TabContext);
 
-const TabHeader: FC<
-    BaseProps & {
-        tab: number;
-        activeClass?: string;
-        slaveClass?: string;
-    }
-> = (props) => {
-    const {
-        children,
-        tab = 0,
-        className = 'cursor-pointer py-2 px-7 first:border-l border-t last:border-r last:rounded-tr first:rounded-tl  border-primary',
-        activeClass = 'bg-white dark:bg-gray-600 text-primary dark:text-accent border-b-0 ',
-        slaveClass = 'text-primary dark:text-gray-400'
-    } = props;
+    const handleClick = () => {
+        if (onChange) onChange(tab);
+    };
+    const _activeSwitchClass = tab === value ? 'cursor-default bg-white dark:bg-slate-900/50 dark:text-sky-500 ' : 'cursor-pointer hover:bg-white/30 hover:dark:bg-slate-900/50 dark:text-white/30';
+    const _activeTabClass = tab === value ? 'cursor-default dark:text-sky-500 text-primary border-b-2 border-primary dark:border-sky-500' : 'cursor-pointer';
 
-    const { currentTab, setCurrentTab, onTabItemChange } = React.useContext(TabContext);
     return (
         <div
-            className={`${className} ${tab === currentTab ? activeClass : slaveClass}`}
-            onClick={() => {
-                if (setCurrentTab) setCurrentTab(tab);
-                if (onTabItemChange) onTabItemChange(tab);
-            }}
+            onClick={handleClick}
+            {...rest}
+            className={` ${variant === 'switch' && 'text-black/60 rounded-md'} 
+    ${variant === 'switch' ? _activeSwitchClass : _activeTabClass}
+  ${className}`}
         >
             {children}
         </div>
     );
 };
 
-const TabItem: FC<
-    BaseProps & {
-        tab: number;
-    }
-> = (props) => {
-    const { children, tab = 0, className = 'py-4 bg-white border-x border-b border-primary rounded-br rounded-bl dark:bg-gray-600 w-full min-h-[100px] ' } = props;
-    const { currentTab } = React.useContext(TabContext);
-    if (tab === currentTab)
-        return (
-            <div {...props} className={className}>
-                {children}
-            </div>
-        );
-    return null;
-};
-
 const Tab: FC<
-    BaseProps & {
-        onTabItemChange?: (tab: number) => void;
+    Props & {
+        children?: ReactNode;
+        className?: string;
     }
 > & {
-    Header: typeof TabHeader;
-    Content: typeof TabItem;
-} = (props) => {
-    const { children, onTabItemChange, className = 'flex flex-col' } = props;
-    const [currentTab, setCurrentTab] = React.useState<number>(0);
-
+    Item: typeof Item;
+} = ({ children, value, onChange, className, variant = 'tab' }) => {
     return (
-        <TabContext.Provider value={{ currentTab, setCurrentTab, onTabItemChange }}>
-            <div className={className}>{children}</div>
+        <TabContext.Provider value={{ value, onChange, variant }}>
+            <div
+                className={`inline-flex gap-1  
+              ${variant === 'switch' ? 'rounded bg-black/5 dark:bg-white/5 p-1' : 'dark:bg-white/5   w-full border-b  border-black/[0.03]  dark:border-white/10'} 
+              ${className}`}
+            >
+                {children}
+            </div>
         </TabContext.Provider>
     );
 };
 
-Tab.Header = TabHeader;
-Tab.Content = TabItem;
+Tab.Item = Item;
 
 export { Tab };
